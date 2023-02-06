@@ -1,9 +1,13 @@
 import React from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "bootstrap/Container";
+import Nav from "bootstrap/Nav";
+import Navbar from "bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
-const Navbar = () => {
+const Navigationbar = () => {
   return (
     <div>
-
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -27,12 +31,8 @@ const Navbar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
-
-
-
     </div>
   )
 }
 
-export default Navbar
+export default Navigationbar;
