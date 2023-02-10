@@ -1,0 +1,12 @@
+nav a.navlink{
+    color: #f5f5f5;
+    font-size: 20px;
+}
+
+#navbarScrollingDropdown{
+    color:#f5f5f5;
+    font-size: 20px;
+}
+nav a.navdroplink{
+    color: #000;
+}
