@@ -10,14 +10,16 @@ body,
   padding:0;
   background-color:var(--color-background);
 }
+
 a{
   text-decoration:none;
 }
 :root{
+  --color-login-btn:#27A327; 
   --color-nav-text:#edf0f1;
-  --color-nav:#D3D3FC;
+  --color-nav:#58bfff;
   --color-nav-hover:#0088A9;
-  --color-background:#88bdbc;
+  --color-background:#fff;
   --color-white : #FFFFFF;
   --color-blue: #77A6F7;
   --color-pink: #FFCCBC;

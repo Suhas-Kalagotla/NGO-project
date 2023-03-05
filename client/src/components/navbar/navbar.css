@@ -1,11 +1,10 @@
-.container{
+.navbar_container{
   background-color:var(--color-nav);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin:1rem 1rem 0 1rem ; 
-  padding:0 1rem 0 1rem;
-  border-radius:25px;
+  padding-left:2rem;
+  padding-right:2rem;
 }
 li,a,button{
   color:var(--color-nav-text);
@@ -25,7 +24,7 @@ li,a,button{
   color:var(--color-nav-hover);
 }
 
-button{
+.navbar_btn{
   padding:9px 25px; 
   background-color:rgba(0,136,169,1);
   border:none; 
@@ -34,10 +33,13 @@ button{
   transition:all 0.3 ease 0s;
 }
 
-button:hover{
+.navbar_btn:hover{
   background-color:rgba(0,136,169,0.8);
 }
 
-button {
+.navbar_btn{
   font-weight:bolder;
+}
+#logo{
+  cursor:pointer;
 }
