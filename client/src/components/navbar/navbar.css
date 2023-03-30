@@ -1,4 +1,4 @@
-.navbar_container{
+nav{
   background-color:var(--color-nav);
   display:flex;
   justify-content:space-between;
@@ -12,15 +12,14 @@ li,a,button{
 
 .nav__links li{
   display:inline-block;
-  padding:0px 20px; 
+  padding:0px 20px;  
 }
 
 .nav__links li a {
   transition: all 0.3s ease 0s; 
 }
 
-.nav__links li a:hover {
-  transition: all 0.3s ease 0s; 
+.nav__links li a:hover { 
   color:var(--color-nav-hover);
 }
 
@@ -43,3 +42,4 @@ li,a,button{
 #logo{
   cursor:pointer;
 }
+

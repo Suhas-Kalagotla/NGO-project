@@ -2,15 +2,16 @@ import mongoose from 'mongoose';
 import cors from 'cors'; 
 import express from 'express'; 
 import bodyParser from 'body-parser'; 
-import complaintRoutes from './routes/complaint.js'; 
+import authRoutes from "./routes/auth.js"; 
 
 const app = express(); 
-
-app.use('/complaint',complaintRoutes); 
 
 app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors()); 
+
+app.post("/auth/register",register); 
+app.use("/auth",authRoutes);
 
 const MONGO_URL ="mongodb+srv://ngo123suhas:ngo123suhas@cluster0.2u3tks7.mongodb.net/?retryWrites=true&w=majority"
 const PORT = process.env.PORT || 5000 ;

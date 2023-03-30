@@ -1,8 +1,12 @@
 import './App.css';
-import {Navbar , Login ,Register} from "./components";
-import {useState} from 'react'; 
+import {Navbar , Login ,Register,Requests} from "./components";
+import React,{useState,useEffect}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+
+
 function App() {
+
+
   const toggleForm =(formName)=>{
     setCurrentForm(formName); 
   }
@@ -15,6 +19,7 @@ function App() {
         <Route path="/login" element={
         currentForm==="login"?<Login onFormSwitch={toggleForm}/>:<Register onFormSwitch={toggleForm}/>
         }/>
+        <Route path="/request" element={<Requests/>}></Route>
         </Routes>
       </Router>
     </div>

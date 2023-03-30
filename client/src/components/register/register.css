@@ -1,12 +1,6 @@
-.register p a{
-  color:skyblue; 
-  cursor:pointer; 
-  text-decoration:underline; 
-}
-
 .register{
   margin:auto; 
-  width:40%; 
+  width:100%; 
   max-width:90%; 
   display:flex; 
   flex-direction:column; 
@@ -15,46 +9,51 @@
 }
 
 .register form{
-  width:100%; 
-  height:100%;
+  margin-top:2rem;
+  width:45%; 
+  height:90%;
   padding:20px;
   background:#fff; 
   border-radius:4px; 
-  box-shadow:0 8px 16px rbga(0,0,0,.3);
+  box-sizing:border-box; 
+  box-shadow:0 2px 5px rgba(0,0,0,0.3); 
+}
+
+.register form h1{
+  text-align:center;  
+}
+.formControl{
+  margin-left:3rem;
+  margin-bottom:0.5rem;
+}
+label{
+  display:block;
+  margin-bottom:5px; 
+}
+.register .input{
+  margin:0.5rem 0 0.5rem 0; 
+}
+
+.error{
+  display:block;
+  
+}
+
+.formControl input{
+  width:80%; 
+  height:40px;
+  background:#fff; 
+  border-radius:4px; 
+  border:1px solid silver;  
+  padding-left: 0.5rem;
 }
 
 .register form h1{
   text-align:center; 
   margin-bottom:24px; 
   color:#222; 
-}
-
-#email, #password,#name{
-  width:100%; 
-  height:40px; 
-  background:#fff; 
-  border-radius:4px; 
-  border:1px solid silver; 
-  margin:10px 0 18px 0; 
-  padding-left:0.5rem;
-  align-items:center; 
-}
-
-
-.login_container form h1{
-  text-align:center; 
-  margin-bottom:24px; 
-  color:#222; 
-}
-
-#confirm_password{
-  width:100%; 
-  height:40px; 
-  background:#fff; 
-  border-radius:4px; 
-  border:1px solid silver; 
-  margin:10px 0 18px 0; 
-  padding-left:0.5rem; 
+  padding:1rem; 
+  background-color:#f7f7f7;
 }
 
 .register form button{
@@ -73,12 +72,6 @@
   transition:.3s; 
 }
 
-.error_message{
-  font-size:12px; 
-  padding:2px; 
-  color:red;
-}
-
 .register p button {
   border:none; 
   background-color: #fff;
@@ -86,4 +79,44 @@
   color:skyblue; 
   cursor:pointer; 
   text-decoration:underline;
+}
+
+.exclamation,.circleCorrect{
+  position:relative; 
+  left:-3rem; 
+  padding-top:0.5px; 
+  width:1em; 
+  height:1em; 
+  margin-left:1rem;
+  visibility:hidden;
+}
+.circleCorrect{
+  filter: invert(67%) sepia(13%) saturate(2211%) hue-rotate(92deg) brightness(96%) contrast(87%);
+}
+.exclamation{
+  left:-5rem; 
+  filter: invert(44%) sepia(31%) saturate(5519%) hue-rotate(338deg) brightness(93%) contrast(94%);
+}
+.formControl.success input {
+  border:2px solid; 
+  border-color:var(--color-success-input);
+   
+}
+
+.formControl.fail input{
+  border:2px solid; 
+  border-color:var(--color-error-input);
+}
+
+.formControl.success .circleCorrect{
+  visibility:visible; 
+}
+
+.formControl.fail .exclamation{
+  visibility:visible; 
+}
+
+.formControl.fail .error{
+  visibility:visible; 
+  color:var(--color-error-input); 
 }

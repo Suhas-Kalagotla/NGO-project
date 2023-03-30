@@ -15,9 +15,11 @@ a{
   text-decoration:none;
 }
 :root{
+  --color-error-input:#e74c3c; 
+  --color-success-input:#2ecc71;
   --color-login-btn:#27A327; 
   --color-nav-text:#edf0f1;
-  --color-nav:#58bfff;
+  --color-nav:#1b2430;
   --color-nav-hover:#0088A9;
   --color-background:#fff;
   --color-white : #FFFFFF;

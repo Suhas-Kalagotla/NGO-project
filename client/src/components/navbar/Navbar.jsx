@@ -1,19 +1,30 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom"; 
+import {Avatar} from "../avatar/Avatar"; 
 import "./navbar.css"
 function NavComp() {
+
+  const user =null; 
+
   return (
-    <div className="navbar_container">
-    <Link to="/"><p id="logo">Logo</p></Link>{/*image tag */}
     <nav>
+      <Link to="/"><p id="logo">Logo</p></Link>{/*image tag */}
       <ul className="nav__links">
-        <li><a href ="#">Services</a> </li>
-        <li><a href ="#">About</a> </li>
-        <a class="bta" ><Link to="/login"><button className="navbar_btn">Login</button></Link></a>
+        <li><Link to ="/request">Request</Link> </li>
+        <li><Link to ="#">About</Link> </li>
+        <li><div>
+        {user ? (
+          <div className="profile">
+            <Avatar className="avatar" alt={user.result.name} src={user.result.imageUrl} >{user.result.name.charAt(0)}</Avatar>
+            <p>{user.result.name}</p>
+            <button className="logout" >Logout</button>
+          </div>
+        ):(
+          <Link to="/login"><button className="navbar_btn">Login</button></Link>
+        )}
+      </div></li>
       </ul>
     </nav>
-      
-    </div>
   );
 }
 
