@@ -1,13 +1,21 @@
 import React , {useState} from 'react'; 
 import "./login.css"; 
+import axios from "axios";
+import { url } from '../../utils/url';
+import {useNavigate} from "react-router-dom"; 
  
 const Login =({onFormSwitch}) =>{
   const [email,setEmail] = useState(''); 
   const [pass,setPass] = useState(''); 
-
-  const handleSubmit =(e)=>{
+  const navigate = useNavigate();
+  const handleSubmit =async (e)=>{
     e.preventDefault(); 
-    console.log(email);
+    const response = await axios.post(`${url}/auth/login`,{
+      email,
+      pass
+    });
+    localStorage.setItem("token",response.data.token);
+    navigate("/");
   }
 
   return(

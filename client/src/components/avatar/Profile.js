@@ -1,7 +1,9 @@
 import React from 'react'; 
 import './avatar.css'; 
 
-export const Avatar =({className,src,alt})=>{
+
+export const Profile =({className,src,alt,logout})=>{
+  
   return(
     <div>
       {src ? (<img className ={`defaultClass ${className}`} src={src} alt={alt}/>
@@ -13,7 +15,8 @@ export const Avatar =({className,src,alt})=>{
         alt={alt}
         />
       )}
-      
+      <p>suhas</p>
+      <button onClick={logout}>logout</button>
     </div>
   )
 }

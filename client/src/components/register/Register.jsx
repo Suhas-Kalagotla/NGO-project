@@ -2,7 +2,8 @@ import React, { useState ,useEffect} from 'react';
 import "./register.css";
 import CircleImage from "./circle-check.png";
 import Exclamation from "./exclamation.png";
- 
+import axios from "axios"; 
+
 const Register = ({ onFormSwitch }) => {
   const initialValues = { name: "", email: "", pass: "", conPass: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -14,11 +15,12 @@ const Register = ({ onFormSwitch }) => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-    console.log(formValues); 
+    const response = await axios.post("http://localhost:5000/auth/register",formValues)
+    console.log(response); 
   };
 
   useEffect(() => {
@@ -63,7 +65,7 @@ const Register = ({ onFormSwitch }) => {
     <div className="register">
       <form onSubmit={handleSubmit}>
         <h1>Registration</h1>
-        <div className={`formControl ${!formValues.name.length>0 ? "fail" :"success" }`}>
+        <div className={`formControl ${formErrors.name && "fail"}`}>
           <label for="name">Full name</label>
           <input value={formValues.name}
             onChange={handleChange}
@@ -77,7 +79,7 @@ const Register = ({ onFormSwitch }) => {
         </div>
         
 
-        <div className={`formControl ${!formValues.email ? "success" :"fail" }`}>
+        <div className={`formControl `}>
           <label for="email">Email</label>
           <input value={formValues.email}
             onChange={handleChange}
@@ -90,7 +92,7 @@ const Register = ({ onFormSwitch }) => {
           <small className="error">{formErrors.email}</small>
         </div>
 
-        <div className={`formControl ${!formValues.pass? "success" :"fail" }`}>
+        <div className={`formControl`}>
           <label for="password">Password</label>
           <input value={formValues.pass}
             onChange={handleChange}
@@ -104,7 +106,7 @@ const Register = ({ onFormSwitch }) => {
           <small className="error">{formErrors.pass}</small>
         </div>
 
-        <div className={`formControl ${!formValues.conPass? "success" :"fail" }`}>
+        <div className={`formControl`}>
           <label for="confirm_password">Confirm Password</label>
           <input value={formValues.conPass}
             onChange={handleChange}

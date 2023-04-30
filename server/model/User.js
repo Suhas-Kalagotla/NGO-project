@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { trusted } from "mongoose";
 import validator from "validator"; 
 
 const UserSchema = new mongoose.Schema(
@@ -22,8 +22,24 @@ const UserSchema = new mongoose.Schema(
       require:[true,"Please Enter Your Password"],
       min:[8,"Password should be more then 8 characters"],
       max:50,
-      select:false,
+      select:true,
     },
+    avatar:{
+        public_id:{
+          type:String,
+          required:false
+        },
+        url:{
+          type:String,
+          required:false
+        }
+      },
+    role:{
+      type:String,
+      default:"user",
+    },
+    resetPasswordToken:String,
+    resetPasswordExpire:Date,
   },{timestamps:true}
 );
 
