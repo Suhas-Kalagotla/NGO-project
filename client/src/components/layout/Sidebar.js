@@ -1,7 +1,11 @@
-import "sidebar.css"
+import "./sidebar.css";
+import react from 'react'; 
+
 export const Sidebar = ()=>{
   return(
-    <p>sidebar</p>
+    <div className ="sidebar_container">
+      <p>sidebar</p>
+    </div>
   )
 };
 

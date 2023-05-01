@@ -1,7 +1,9 @@
-import "header.css"
+import "./header.css"
 function Header(){
 return(
-  <p>header</p>
+  <div className="header_container">
+    <p>header</p>
+  </div>
 )
 }
 
