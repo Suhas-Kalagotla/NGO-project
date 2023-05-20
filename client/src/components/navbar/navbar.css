@@ -5,14 +5,22 @@ nav{
   align-items:center;
   padding-left:2rem;
   padding-right:2rem;
+  height:3.5rem; 
+  position:relative; 
 }
 li,a,button{
   color:var(--color-nav-text);
+  font-size:1.5rem ;
 }
 
-.nav__links li{
-  display:inline-block;
-  padding:0px 20px;  
+.nav__links {
+  width:100%; 
+  text-align:right; 
+}
+.nav__links li {
+  display:inline-block; 
+  list-style:none; 
+  margin:10px 20px ; 
 }
 
 .nav__links li a {
@@ -38,8 +46,8 @@ li,a,button{
 
 .navbar_btn{
   font-weight:bolder;
+  margin:0.5rem; 
 }
 #logo{
   cursor:pointer;
 }
-

@@ -29,9 +29,13 @@ a{
   --color-light-blue:#D3E3FC;
   --color-black:#5F6366;
   --color-grey : #86B3D1;
+  --color-div-text: #8f8f8f; 
+  
+  /*Apply button variables*/
+  --c : #229091; 
+  --_g : linear-gradient(var(--c) 0 0 ) no-repeat; 
+  --_p: 100%; 
 }
-
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

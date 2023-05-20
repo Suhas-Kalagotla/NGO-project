@@ -8,6 +8,7 @@ const Login =({onFormSwitch}) =>{
   const [email,setEmail] = useState(''); 
   const [pass,setPass] = useState(''); 
   const navigate = useNavigate();
+
   const handleSubmit =async (e)=>{
     e.preventDefault(); 
     const response = await axios.post(`${url}/auth/login`,{
@@ -23,9 +24,9 @@ const Login =({onFormSwitch}) =>{
     <div className="login_container">
     <form onSubmit = {handleSubmit}>
       <h1>Login</h1>
-      <label for="email">Email</label>
+      <label htmlFor="email">Email</label>
       <input value ={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com"id="email"name="email"/>
-      <label for="password">Password</label>
+      <label htmlFor="password">Password</label>
       <input value = {pass} onChange={(e)=>setPass(e.target.value)} type="password" placeholder="****"id="password"name="password"/>
       <button className="">Log In</button>
     </form>

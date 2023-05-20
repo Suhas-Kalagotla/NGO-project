@@ -8,15 +8,19 @@ export const register = async(req,res)=>{
       name,
       email,
       pass,
+      role,
+      number,
     } = req.body;
 
     const salt = await bcrypt.genSalt(); 
     const passHash = await bcrypt.hash(pass,salt); 
-
+    const num = role === "user" ? null : number;
     const newUser = new User({
       name,
       email,
       password:passHash,
+      role,
+      number,
     });
     const savedUser = await newUser.save(); 
 

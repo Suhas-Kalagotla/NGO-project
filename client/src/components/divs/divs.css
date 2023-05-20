@@ -1,0 +1,120 @@
+.everything{
+  margin:0; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  flex-direction:column; 
+  box-sizing : border-box; 
+  width:100%; 
+}
+.links{
+  display:flex; 
+  justify-content:space-between; 
+  width:100%; 
+}
+.everthing p,small{
+  color:var(--color-div-text); 
+}
+.everthing p{
+  font-size: 0.9rem ; 
+  line-height:23px; 
+}
+
+h1{
+  margin:0; 
+}
+.skewed{
+  height:21.5rem; 
+  width:90%; 
+  color:#f1f1f1; 
+  display:flex; 
+  background:#111; 
+  margin:2em 0;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);  
+  margin-left:5%; 
+  border-radius:15px; 
+}
+
+.text{
+  padding:1.5em; 
+  width:100%; 
+  display:flex; 
+  justify-content:space-evenly; 
+  align-items:flex-start; 
+  flex-direction:column; 
+  object-fit:cover; 
+}
+
+.everything a{
+  color:#fff; 
+  text-decoration:none; 
+}
+.image{
+  display:flex;
+  align-items: center;
+  justify-content:space-around; 
+  height:auto; 
+  width:40%; 
+  
+}
+
+.image img {
+  object-fit:contain; 
+  height:600px; 
+  width:600px; 
+}
+.skewed-left .image {
+  width:40%; 
+}
+.skewed-left .text{
+  width:60%; 
+}
+.image{
+  width:100%; 
+}
+
+
+.apply_btn{
+   
+  box-shadow:0 0 0 .1em inset var(--c); 
+  --_g : linear-gradient(var(--c) 0 0 ) no-repeat; 
+  background:
+    var(--_g) calc(var(--_p,0%)-100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size:50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset:.1em; 
+  transition:background-size .4s, background-position 0s .4s; 
+}
+
+.apply_btn:hover{
+  --_p:100%; 
+  transition: background-position.4s, background-size 0s; 
+}
+
+.apply_btn:active{
+  box-shadow:0 0 9e9q inset #0009; 
+  background-color:var(--c);
+  color:#fff
+}
+
+.apply_btn {
+  cursor:pointer; 
+  padding:.3em 1em; 
+  font-weight:bold; 
+  border:none; 
+}
+
+@media screen and (max-width:750px){
+  .skewed{
+    display:block; 
+    width:20em; 
+  }
+  .image .text {
+    width:100%; 
+  }
+  img{
+    width:60%; 
+  }
+}

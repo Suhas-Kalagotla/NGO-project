@@ -120,3 +120,26 @@ label{
   visibility:visible; 
   color:var(--color-error-input); 
 }
+
+.radioBtns , .radioBtns > label{
+  display:flex; 
+  flex-direction: row;
+  align-items:center; 
+}
+.radioBtns{
+  width:80%;
+}
+.radioBtn{
+  margin-right:0.5rem; 
+  width:1rem !important;
+  height:3rem !important;  
+}
+.radioBtns > label {
+  margin-right:30%; 
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

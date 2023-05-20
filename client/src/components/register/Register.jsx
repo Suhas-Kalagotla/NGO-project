@@ -1,34 +1,39 @@
 import React, { useState ,useEffect} from 'react';
 import "./register.css";
-import CircleImage from "./circle-check.png";
-import Exclamation from "./exclamation.png";
+import Exclamation from "../../images/exclamation.png";
 import axios from "axios"; 
+import {useNavigate} from "react-router-dom"; 
 
 const Register = ({ onFormSwitch }) => {
-  const initialValues = { name: "", email: "", pass: "", conPass: "" };
+  const initialValues = { name: "", email: "", pass: "", conPass: "",role:"user",number:null};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-
+  const navigate = useNavigate(); 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const radioChange =(e)=>{
+    setFormValues({...formValues,role:e.target.value}); 
+  }
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-    const response = await axios.post("http://localhost:5000/auth/register",formValues)
-    console.log(response); 
+    e.preventDefault(); 
+    setIsSubmit(true); 
+    const errors = validate(formValues);
+    if(Object.keys(errors).length===0){
+      const response = await axios.post("http://localhost:5000/auth/register",formValues)
+      onFormSwitch('login');
+    }
   };
 
   useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors]);
+    if(isSubmit) {
+      validate(formValues); 
+    } 
+  }, [formValues]);
+  
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -50,64 +55,61 @@ const Register = ({ onFormSwitch }) => {
 
     if(!values.conPass){
       errors.conPass = "Confirm Password"; 
-    }else if(values.conPass != values.pass){
+    }else if(values.conPass !== values.pass){
       errors.conPass = "Password does not match"; 
     }
-    changeClass();
-    return errors;
-  };
-  const success = "success"; 
-  const fail = "fail"; 
-  const changeClass = ()=>{
-
+    if(values.role==="volunteer"){
+    if(!values.number){
+      errors.number="Please Enter Number"
+    }else if(values.number.toString().length !==10){
+      errors.number="Please Enter Valid Number"
+    }
   }
+    setFormErrors(errors); 
+    return errors; 
+  };
+  
   return (
     <div className="register">
       <form onSubmit={handleSubmit}>
         <h1>Registration</h1>
         <div className={`formControl ${formErrors.name && "fail"}`}>
-          <label for="name">Full name</label>
+          <label htmlFor="name">Full name</label>
           <input value={formValues.name}
             onChange={handleChange}
             name="name"
             id="name"
             placeholder="Full Name"
           />
-          <img className="circleCorrect" src={CircleImage} />
           <img className="exclamation" src={Exclamation} />
           <small className="error">{formErrors.name}</small>
         </div>
-        
-
-        <div className={`formControl `}>
-          <label for="email">Email</label>
+        <div className={`formControl ${formErrors.email && "fail"}`}>
+          <label htmlFor="email">Email</label>
           <input value={formValues.email}
             onChange={handleChange}
             type="email"
             placeholder="youremail@gmail.com"
             id="email" name="email"
           />
-          <img className="circleCorrect" src={CircleImage} />
           <img className="exclamation" src={Exclamation} />
           <small className="error">{formErrors.email}</small>
         </div>
 
-        <div className={`formControl`}>
-          <label for="password">Password</label>
+        <div className={`formControl ${formErrors.pass && "fail"}`}>
+          <label htmlFor="password">Password</label>
           <input value={formValues.pass}
             onChange={handleChange}
             type="password"
             placeholder="****"
             id="password"
             name="pass" />
-          
-          <img className="circleCorrect" src={CircleImage} />
           <img className="exclamation" src={Exclamation} />
           <small className="error">{formErrors.pass}</small>
         </div>
 
-        <div className={`formControl`}>
-          <label for="confirm_password">Confirm Password</label>
+        <div className={`formControl ${formErrors.conPass && "fail"}`}>
+          <label htmlFor="confirm_password">Confirm Password</label>
           <input value={formValues.conPass}
             onChange={handleChange}
             type="password"
@@ -115,10 +117,39 @@ const Register = ({ onFormSwitch }) => {
             id="confirm_password"
             name="conPass"
           />
-          <img className="circleCorrect" src={CircleImage} />
           <img className="exclamation" src={Exclamation} />
           <small className="error">{formErrors.conPass}</small>
+
+        <div className="radioBtns">
+          <label>
+          <input type="radio" className="radioBtn" value = "user" name="role"
+          checked ={formValues.role==="user"}
+          onChange={radioChange}
+          />User
+          </label>
+          <label>
+          <input type="radio" className="radioBtn" value = "volunteer" name ="role" 
+          onChange ={radioChange}
+          checked={formValues.role==="volunteer"}
+          />Volunteer
+          </label>
         </div>
+        </div>
+
+        { formValues.role==="volunteer" &&  
+
+          <div className={`formControl ${formErrors.number && "fail"}`}>
+          <label htmlFor="number">Contact number</label>
+          <input value={formValues.number}
+            onChange={handleChange}
+            id="number"
+            name="number"
+            type="number"
+          />
+          <img className="exclamation" src={Exclamation} />
+          <small className="error">{formErrors.number}</small>
+          </div>
+        }
 
         <button>Register</button>
       </form>
