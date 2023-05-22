@@ -153,7 +153,7 @@ const Register = ({ onFormSwitch }) => {
 
         <button>Register</button>
       </form>
-      <p>Already have an accout? <button onClick={() => onFormSwitch('login')}>Login here</button></p>
+      <p>Already have an accout? <a onClick={() => onFormSwitch('login')}>Login here</a></p>
     </div>
   )
 }

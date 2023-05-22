@@ -35,7 +35,7 @@ const Divs = (props)=>{
         <p>{props.para}</p>
         <div className="links">
         <a href="#">Read More &rarr;</a>
-        <button className="apply_btn"><Link to ="/application">Apply now</Link></button>
+        <button className="apply_btn"><Link to ="/application/form">Apply now</Link></button>
         </div>
       </div>
       </div>

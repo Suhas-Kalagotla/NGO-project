@@ -72,11 +72,10 @@ label{
   transition:.3s; 
 }
 
-.register p button {
+.register p a {
   border:none; 
-  background-color: #fff;
   font-size:1rem; 
-  color:skyblue; 
+  color:black; 
   cursor:pointer; 
   text-decoration:underline;
 }
