@@ -1,5 +1,6 @@
 import './App.css';
-import {Navbar , Login ,Register,Applications,Divs,Form} from "./components";
+import {Navbar , Login ,Register,Applications,Divs,Form
+,PrivateRoute} from "./components";
 import React,{useState,useEffect}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import scholarship from "./images/Scholarship.webp"; 
@@ -25,8 +26,16 @@ function App(){
         currentForm==="login"?<Login onFormSwitch={toggleForm}/>:<Register onFormSwitch={toggleForm}/>
         }/>
         }
-        <Route path="/application" element={<Applications/>}></Route>
-        <Route path="/application/form" element ={<Form/>}/>
+        <Route path="/application" element={
+          <PrivateRoute>
+            <Applications/>
+          </PrivateRoute>
+        }></Route>
+        <Route path="/application/form" element ={
+          <PrivateRoute>
+            <Form/>
+          </PrivateRoute>
+        }/>
         <Route path="/" element={
           <>
           <Divs 

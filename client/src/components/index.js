@@ -4,3 +4,4 @@ export {default as Register} from "./register/Register";
 export {default as Divs} from "./divs/Divs.jsx"; 
 export {default as Applications} from "./application/Index"; 
 export {default as Form} from "./application/Form"; 
+export {default as PrivateRoute} from "./privateRoute/PrivateRoute";

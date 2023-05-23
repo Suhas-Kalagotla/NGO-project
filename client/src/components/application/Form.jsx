@@ -2,14 +2,16 @@ import react from 'react';
 import FormInput from './FormInput';
 import {useFormik} from "formik"; 
 import * as Yup from "yup"; 
-import {Formik} from "formik";
+import {Formik,Field} from "formik";
 import axios from 'axios';
+import "./form.css"
+
 
 const initialValues={
   name:"",
   fatherName:"",
   motherName:"",
-  gender:"",
+  gender:"male",
   dob:"",
   category:"",
   religion:"",
@@ -65,32 +67,51 @@ const Form =()=>{
       }}
       >
         {({handleSubmit, errors})=>{
-          console.log(errors);
+          console.log(errors); 
           return(
             <form novalidate onSubmit={handleSubmit}>
-            <h2>Basic Details</h2>
+            <h2 className="heading">Basic Details</h2>
             <FormInput label="Name" name="name" placeholder="surname name"/>
             <FormInput label="Father's Name" name="fatherName" placeholder="surname name"/>
             <FormInput label="Mother's Name" name="motherName" placeholder="surname name"/>
-            <FormInput label="Gender" name="gender" placeholder="Male or Female"/>
-            <FormInput label="Date of Birth" name="dob" placeholder="DD/MM/YYYY"/>
-            <FormInput label="Category" name="category" placeholder="SC/ST/OBC/SEBC"/>
-            <FormInput label="Religion" name="religion" placeholder="Hindu/Christian/Muslim"/>
-            <FormInput label="Special Category" name="specialCategory" placeholder="Blind/Deaf"/>
-            <FormInput label="Mobile no." name="number" placeholder=""/>
-            <FormInput label="Adhar Card (UID) No" name="adharNumber" placeholder=""/>
-            <h2>Address Details</h2>
-            <FormInput label="Address for Correspondence:" name="address" placeholder="Full Address"/>
-            <FormInput label="District" name="district" placeholder=""/>
-            <FormInput label="Pin Code" name="pincode" placeholder=""/>
-            <FormInput label="State" name="state" placeholder=""/>
-            <FormInput label="Permanent Address" name="permanentAddress" placeholder=""/>
-            <FormInput label="District" name="permanentDistrict" placeholder=""/>
-            <FormInput label="Pin Code" name="permanentPinCode" placeholder=""/>
-            <FormInput label="State" name="permanentState" placeholder=""/>
-            <h2>Educational Details</h2>
-            <FormInput label="Present Class" name="class" placeholder="10th or inter"/>
-            <FormInput label="Previous Class Marks" name="previousMarks" placeholder="gps or marks"/>
+            <div>
+            <label>Gender</label>
+            <div className="options">
+            <label>
+            <input 
+            defaultChecked = {initialValues.gender==="male"}
+            type="radio"
+            name="gender"
+            className="gender"
+            value="male"/>Male
+            </label>
+            <label>
+            <input 
+            type="radio"
+            name="gender"
+            className="gender"
+            value="female"/>Female
+            </label>
+            </div>
+            </div>
+            <FormInput label="Date of Birth" name="dob" type="text" placeholder="DD/MM/YYYY"/>
+            <FormInput label="Category" name="category" type="text" placeholder="SC/ST/OBC/SEBC"/>
+            <FormInput label="Religion" name="religion" type="text" placeholder="Hindu/Christian/Muslim"/>
+            <FormInput label="Special Category" name="specialCategory" type="text" placeholder="Blind/Deaf"/>
+            <FormInput label="Mobile no." name="number" type="number" placeholder=""/>
+            <FormInput label="Adhar Card (UID) No" name="adharNumber" type="number" placeholder=""/>
+            <h2 className="heading">Address Details</h2>
+            <FormInput label="Address for Correspondence:" name="address" type="text" placeholder="Full Address"/>
+            <FormInput label="District" name="district" type="text" placeholder=""/>
+            <FormInput label="Pin Code" name="pincode" type="text" placeholder=""/>
+            <FormInput label="State" name="state" type="text" placeholder=""/>
+            <FormInput label="Permanent Address" name="permanentAddress" type="text" placeholder=""/>
+            <FormInput label="District" name="permanentDistrict" type="text" placeholder=""/>
+            <FormInput label="Pin Code" name="permanentPinCode" type="text" placeholder=""/>
+            <FormInput label="State" name="permanentState" type="text" placeholder=""/>
+            <h2 className="heading">Educational Details</h2>
+            <FormInput label="Present Class" name="class" type="text" placeholder="10th or inter"/>
+            <FormInput label="Previous Class Marks" name="previousMarks" type="text" placeholder="gps or marks"/>
             <button type="submit">Apply</button>
           </form>
           )
