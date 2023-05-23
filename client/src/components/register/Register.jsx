@@ -3,6 +3,7 @@ import "./register.css";
 import Exclamation from "../../images/exclamation.png";
 import axios from "axios"; 
 import {useNavigate} from "react-router-dom"; 
+import {url} from "../../utils/url";
 
 const Register = ({ onFormSwitch }) => {
   const initialValues = { name: "", email: "", pass: "", conPass: "",role:"user",number:null};
@@ -23,7 +24,7 @@ const Register = ({ onFormSwitch }) => {
     setIsSubmit(true); 
     const errors = validate(formValues);
     if(Object.keys(errors).length===0){
-      const response = await axios.post("http://localhost:5000/auth/register",formValues)
+      const response = await axios.post(`${url}/auth/register`,formValues)
       onFormSwitch('login');
     }
   };

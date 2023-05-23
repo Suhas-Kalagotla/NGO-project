@@ -13,7 +13,6 @@ function App(){
   }
   const [currentForm,setCurrentForm] = useState('login');
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user?.role);
   return (
     <div className="app">
       <Router>

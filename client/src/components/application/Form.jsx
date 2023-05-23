@@ -4,10 +4,14 @@ import {useFormik} from "formik";
 import * as Yup from "yup"; 
 import {Formik,Field} from "formik";
 import axios from 'axios';
+import { url } from '../../utils/url';
 import "./form.css"
 
+const user = JSON.parse(localStorage.getItem("user"));
+const userEmail=user.email;
 
 const initialValues={
+  email:userEmail,
   name:"",
   fatherName:"",
   motherName:"",
@@ -20,7 +24,7 @@ const initialValues={
   adharNumber:"",
   address:"",
   district:"",
-  pinCode:"",
+  pincode:"",
   state:"",
   permanentAddress:"",
   permanentDistrict:"",
@@ -43,11 +47,11 @@ export const validation = Yup.object({
   address:Yup.string().required("Please Enter Address"),
   district:Yup.string().required("Please Enter District"),
   adharNumber:Yup.string().required("Please Enter Adhar Number"),
-  pincode:Yup.string().required("Please Enter Pincode"),
+  pincode:Yup.number().required("Please Enter Pincode"),
   state:Yup.string().required("Please Enter State"),
   permanentAddress:Yup.string().required("Please Enter Address"),
   permanentState:Yup.string().required("Please Enter State"),
-  permanentPinCode:Yup.string().required("Please Enter PinCode"),
+  permanentPinCode:Yup.number().required("Please Enter PinCode"),
   permanentDistrict:Yup.string().required("Please Enter District"),
   class:Yup.string().required("Please Enter Class"),
   previousMarks:Yup.string().required("Please Enter Marks"),
@@ -62,14 +66,13 @@ const Form =()=>{
       <Formik
       initialValues={initialValues}
       validationSchema={validation}
-      onSubmit ={async()=>{
-        const response = await axios.post("http://localhost:5000/application/form",initialValues);
+      onSubmit ={async(values)=>{
+        const response = await axios.post(`${url}/application/form`,values);
       }}
       >
         {({handleSubmit, errors})=>{
-          console.log(errors); 
           return(
-            <form novalidate onSubmit={handleSubmit}>
+            <form noValidate onSubmit={handleSubmit}>
             <h2 className="heading">Basic Details</h2>
             <FormInput label="Name" name="name" placeholder="surname name"/>
             <FormInput label="Father's Name" name="fatherName" placeholder="surname name"/>
@@ -103,11 +106,11 @@ const Form =()=>{
             <h2 className="heading">Address Details</h2>
             <FormInput label="Address for Correspondence:" name="address" type="text" placeholder="Full Address"/>
             <FormInput label="District" name="district" type="text" placeholder=""/>
-            <FormInput label="Pin Code" name="pincode" type="text" placeholder=""/>
+            <FormInput label="Pin Code" name="pincode" type="number" placeholder=""/>
             <FormInput label="State" name="state" type="text" placeholder=""/>
             <FormInput label="Permanent Address" name="permanentAddress" type="text" placeholder=""/>
             <FormInput label="District" name="permanentDistrict" type="text" placeholder=""/>
-            <FormInput label="Pin Code" name="permanentPinCode" type="text" placeholder=""/>
+            <FormInput label="Pin Code" name="permanentPinCode" type="number" placeholder=""/>
             <FormInput label="State" name="permanentState" type="text" placeholder=""/>
             <h2 className="heading">Educational Details</h2>
             <FormInput label="Present Class" name="class" type="text" placeholder="10th or inter"/>

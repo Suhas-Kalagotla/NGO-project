@@ -2,10 +2,14 @@ import mongoose from 'mongoose';
 
 const ApplicationSchema = new mongoose.Schema(
   {
-    name:{
-      type:String,
-      required:true,
-    },
+  email:{
+    type:String,
+    required:true,
+  },
+  name:{
+    type:String,
+    required:true,
+  },
   fatherName:{
     type:String,
     required:true,
@@ -50,7 +54,7 @@ const ApplicationSchema = new mongoose.Schema(
     type:String,
     required:true,
   },
-  pinCode:{
+  pincode:{
     type:String,
     required:true,
   },

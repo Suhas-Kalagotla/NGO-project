@@ -1,9 +1,11 @@
 import react from 'react'
-
+import Application from './Application';
 const Index=()=>{
+  return(
   <>
-  all applications
+  <Application/>
   </>
+  )
 }
 
 export default Index; 
