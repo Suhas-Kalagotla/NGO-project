@@ -65,12 +65,14 @@ h1{
 }
 .skewed-left .image {
   width:40%; 
+  min-width:0;
 }
 .skewed-left .text{
   width:60%; 
 }
 .image{
   width:100%; 
+  min-width:0;
 }
 
 

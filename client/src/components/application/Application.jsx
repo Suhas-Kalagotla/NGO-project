@@ -1,23 +1,27 @@
 import react,{useEffect,useState} from 'react'
-import axios from 'axios';
-import {url} from "../../utils/url.js";
-
-const Application =()=>{
-  const user = JSON.parse(localStorage.getItem("user"));
-  const email = user.email;
-  const [data,setData] = useState("");
-
-  const getData=async()=>{
-    const response = await axios.post(`${url}/application/applications`,{email:email});
-    setData(response.data.msg);
-    console.log(response.data);
-  }
-  useEffect(()=>{
-    getData();
-  },[]);
-  
+import './application.css';
+import Field from './Field';
+import down from '../../images/down.png';
+const Application =({data})=>{
+   console.log(data);
   return(
-    <p>{data}</p>
+    <>
+    <div className="appContainer">
+      <div className="status">
+        <Field label="Name:" value={data.name}></Field>
+        <Field label="Application:" value="Scholarship"></Field>
+        <Field label="Status:" value="Pending"></Field>
+      </div>
+      <div className="personDetails">
+        <Field label="Email:" value={data.email}></Field>
+        <Field label="Father Name:" value={data.fatherName}></Field>
+        <Field label="Mother Name:" value ={data.motherName}></Field>
+        <img src={down} className="icon"/>
+      </div>
+      <div className="appDetails">
+      </div>
+    </div>
+    </>
   )
 }
 

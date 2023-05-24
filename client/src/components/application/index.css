@@ -1,0 +1,19 @@
+.newApply{
+ 
+  cursor:pointer;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  background-color:var(--color-nav);
+  padding:0.5rem;
+  color:white;
+  border-radius:50px; 
+  position:fixed;
+  right:2rem;
+  bottom:2rem;
+  font-size:1rem;
+}
+.newApply > img{
+  margin-right:0.5rem;
+  filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+}

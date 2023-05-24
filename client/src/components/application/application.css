@@ -1,0 +1,23 @@
+.appContainer{
+  width:80%;
+  margin:auto;
+  margin-top:1.5rem; 
+  background-color:whitesmoke;
+     
+  align-items:center;
+  border-radius:10px; 
+  font-size:1.5rem;
+  padding:0.5rem; 
+}
+
+.status,.personDetails{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  margin-bottom:1rem;
+  align-items:center;
+}
+
+.icon{
+  cursor:pointer;
+}
