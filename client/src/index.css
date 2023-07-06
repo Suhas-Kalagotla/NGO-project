@@ -30,7 +30,7 @@ body{background-color: #ffffff;
   --color-light-blue:#D3E3FC;
   --color-black:#5F6366;
   --color-grey : #86B3D1;
-  --color-div-text: #8f8f8f; 
+  --color-div-text: #000; 
   
   /*Apply button variables*/
   --c : #229091; 

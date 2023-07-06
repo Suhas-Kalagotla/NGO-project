@@ -1,9 +1,8 @@
 import react,{useEffect,useState} from 'react'
 import './application.css';
-import Field from './Field';
+import Field from '../field/Field';
 import down from '../../images/down.png';
 const Application =({data})=>{
-   console.log(data);
   return(
     <>
     <div className="appContainer">

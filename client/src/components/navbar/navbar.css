@@ -7,11 +7,9 @@ nav{
   padding-right:2rem;
   height:3.5rem; 
   position:relative; 
-}
-li,a,button{
-  color:var(--color-nav-text);
   font-size:1.5rem ;
 }
+
 
 .nav__links {
   width:100%; 
@@ -24,6 +22,7 @@ li,a,button{
 }
 
 .nav__links li a {
+  color:var(--color-nav-text);
   transition: all 0.3s ease 0s; 
 }
 
@@ -32,6 +31,8 @@ li,a,button{
 }
 
 .navbar_btn{
+  font-size:1.5rem ;
+  color:var(--color-nav-text); 
   padding:9px 25px; 
   background-color:rgba(0,136,169,1);
   border:none; 
@@ -50,4 +51,5 @@ li,a,button{
 }
 #logo{
   cursor:pointer;
+  color:var(--color-nav-text);
 }

@@ -25,12 +25,12 @@ const Index=()=>{
       <Application data={d}/>
   ))
   }
-    <Link to="/application/form">
-  <div class="newApply">
+  <Link to="/application/form">
+    <div className="newApply">
       <img src={add}/>
       <p>New Application</p>
-  </div>
-    </Link>
+    </div>
+  </Link>
   </>
   )
 }

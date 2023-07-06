@@ -1,17 +1,17 @@
 import react from 'react'; 
-import FormInput from './FormInput';
-import {useFormik} from "formik"; 
+import FormInput from '../formInput/FormInput';
+import {Navigate} from 'react-router-dom'
 import * as Yup from "yup"; 
-import {Formik,Field} from "formik";
+import {Formik} from "formik";
 import axios from 'axios';
 import { url } from '../../utils/url';
 import "./form.css"
 
-const user = JSON.parse(localStorage.getItem("user"));
-const userEmail=user.email;
+// const user = JSON.parse(localStorage.getItem("user"));
+// const userEmail=user.email;
 
 const initialValues={
-  email:userEmail,
+  // email:userEmail,
   name:"",
   fatherName:"",
   motherName:"",
@@ -43,7 +43,7 @@ export const validation = Yup.object({
   category:Yup.string().required("Please Enter Category"),
   religion:Yup.string().required("Please Enter Religion"),
   specialCategory:Yup.string(),
-  number:Yup.number().required("Please Enter Number"),
+  number:Yup.number().required("Please Enter Phone Number"),
   address:Yup.string().required("Please Enter Address"),
   district:Yup.string().required("Please Enter District"),
   adharNumber:Yup.string().required("Please Enter Adhar Number"),
@@ -62,12 +62,15 @@ export const validation = Yup.object({
 
 const Form =()=>{
   return(
+     
     <div>
       <Formik
       initialValues={initialValues}
       validationSchema={validation}
       onSubmit ={async(values)=>{
         const response = await axios.post(`${url}/application/form`,values);
+        <Navigate to="application"/>
+        console.log("asdf")
       }}
       >
         {({handleSubmit, errors})=>{
@@ -83,6 +86,7 @@ const Form =()=>{
             <label>
             <input 
             defaultChecked = {initialValues.gender==="male"}
+            
             type="radio"
             name="gender"
             className="gender"
@@ -90,6 +94,7 @@ const Form =()=>{
             </label>
             <label>
             <input 
+            onChange={()=>{initialValues.gender="female"}}
             type="radio"
             name="gender"
             className="gender"
@@ -121,6 +126,7 @@ const Form =()=>{
         }}
 
   </Formik>
+
   </div>
   )
 }

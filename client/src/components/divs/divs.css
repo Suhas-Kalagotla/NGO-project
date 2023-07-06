@@ -21,6 +21,7 @@
 }
 
 h1{
+  color:#000; 
   margin:0; 
 }
 .skewed{
@@ -28,7 +29,7 @@ h1{
   width:90%; 
   color:#f1f1f1; 
   display:flex; 
-  background:#111; 
+  background:none; 
   margin:2em 0;
   box-shadow: 0 0 15px rgba(0,0,0,0.7);  
   margin-left:5%; 
@@ -45,8 +46,13 @@ h1{
   object-fit:cover; 
 }
 
+.text{
+  color:var(--color-div-text); 
+  font-size:1rem; 
+}
+
 .everything a{
-  color:#fff; 
+  color:#000; 
   text-decoration:none; 
 }
 .image{
@@ -64,17 +70,27 @@ h1{
   width:600px; 
 }
 .skewed-left .image {
-  width:40%; 
+  max-width:40%; 
   min-width:0;
 }
 .skewed-left .text{
   width:60%; 
 }
 .image{
-  width:100%; 
+  width:80%; 
   min-width:0;
+  max-width:100%;
 }
-
+.links{
+  color:var(--color-div-text); 
+}
+.apply_btn {
+  font-size:1.3rem; 
+  cursor:pointer; 
+  padding:.3em 1em; 
+  font-weight:bold; 
+  border:none; 
+}
 
 .apply_btn{
    
@@ -88,7 +104,7 @@ h1{
   background-size:50.5% calc(var(--_p,0%)/2 + .5%);
   outline-offset:.1em; 
   transition:background-size .4s, background-position 0s .4s; 
-}
+} 
 
 .apply_btn:hover{
   --_p:100%; 
@@ -98,15 +114,9 @@ h1{
 .apply_btn:active{
   box-shadow:0 0 9e9q inset #0009; 
   background-color:var(--c);
-  color:#fff
 }
 
-.apply_btn {
-  cursor:pointer; 
-  padding:.3em 1em; 
-  font-weight:bold; 
-  border:none; 
-}
+
 
 @media screen and (max-width:750px){
   .skewed{
