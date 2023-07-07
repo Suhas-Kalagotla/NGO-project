@@ -19,7 +19,12 @@ const Login =({onFormSwitch}) =>{
       });
       localStorage.setItem("token",response.data.token);
       localStorage.setItem("user",JSON.stringify(response.data.user));
-      navigate("/");
+      const user = JSON.parse(localStorage.getItem("user")); 
+      if(user.role=="user"){
+        navigate("/");
+      }else if(user.role=="admin"){
+        navigate("/admin"); 
+      }
     }catch(err){
       const msg = err.response.data.msg;
       setErrors(msg);

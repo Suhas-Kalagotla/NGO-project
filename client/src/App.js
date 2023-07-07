@@ -1,6 +1,6 @@
 import './App.css';
 import {Navbar , Login ,Register,Applications,Divs,Form
-,PrivateRoute} from "./components";
+,PrivateRoute,Admin} from "./components";
 import React,{useState,useEffect}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import scholarship from "./images/Scholarship.webp"; 
@@ -16,8 +16,11 @@ function App(){
   return (
     <div className="app">
       <Router>
-        <Navbar/>
-        <Routes>
+        {
+          user?.role !== "admin" && 
+            <Navbar />
+        }
+        <Routes>  
         {
             !user && 
         <Route path="/login" element=
@@ -35,6 +38,7 @@ function App(){
             <Form/>
           </PrivateRoute>
         }/>
+        
         <Route path="/" element={
           <>
           <Divs 
@@ -70,6 +74,14 @@ function App(){
           />
           </>
         }></Route>
+        {
+          user?.role=="admin" &&
+            <Route path="/admin" element={
+              <Admin/>
+            }/>
+          
+        }
+
         </Routes>
       </Router>
     </div>

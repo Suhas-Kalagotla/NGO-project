@@ -7,32 +7,7 @@ import axios from 'axios';
 import { url } from '../../utils/url';
 import "./form.css"
 
-// const user = JSON.parse(localStorage.getItem("user"));
-// const userEmail=user.email;
 
-const initialValues={
-  // email:userEmail,
-  name:"",
-  fatherName:"",
-  motherName:"",
-  gender:"male",
-  dob:"",
-  category:"",
-  religion:"",
-  specialCategory:"",
-  number:"",
-  adharNumber:"",
-  address:"",
-  district:"",
-  pincode:"",
-  state:"",
-  permanentAddress:"",
-  permanentDistrict:"",
-  permanentPinCode:"",
-  permanentState:"",
-  class:"",
-  previousMarks:"",
-}
 
 export const validation = Yup.object({
   name:Yup.string().min(2).max(25).required("Please Enter your Name"),
@@ -61,6 +36,35 @@ export const validation = Yup.object({
 
 
 const Form =()=>{
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userEmail=user.email;
+
+
+
+const initialValues={
+  email:userEmail,
+  name:"",
+  fatherName:"",
+  motherName:"",
+  gender:"male",
+  dob:"",
+  category:"",
+  religion:"",
+  specialCategory:"",
+  number:"",
+  adharNumber:"",
+  address:"",
+  district:"",
+  pincode:"",
+  state:"",
+  permanentAddress:"",
+  permanentDistrict:"",
+  permanentPinCode:"",
+  permanentState:"",
+  class:"",
+  previousMarks:"",
+}
+
   return(
      
     <div>
