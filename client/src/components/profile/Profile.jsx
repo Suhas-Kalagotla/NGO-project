@@ -53,9 +53,9 @@ export const Profile =({src,name,logout})=>{
             <img src={settings}/>
             <a>Settings</a>
           </li>
-          <li className = "dropdownItem">
+          <li className = "dropdownItem" id="logout">
             <img src={logout_logo}/>
-            <button id="logout"onClick={logout}>Logout</button>
+            <button onClick={logout}>Logout</button>
           </li>
         </ul>
       </div>

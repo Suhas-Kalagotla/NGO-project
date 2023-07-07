@@ -31,7 +31,7 @@ body{background-color: #ffffff;
   --color-black:#5F6366;
   --color-grey : #86B3D1;
   --color-div-text: #000; 
-  
+  --color-formDivs:#a9e2f5; 
   /*Apply button variables*/
   --c : #229091; 
   --_g : linear-gradient(var(--c) 0 0 ) no-repeat; 
