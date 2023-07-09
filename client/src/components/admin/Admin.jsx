@@ -1,10 +1,12 @@
 import react from 'react'; 
+import Sidebar from '../sidebar/Sidebar';
 import "./admin.css"; 
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+
 const Admin = ()=>{
+  
   return(
-    <div className="body">
-      <p>hello admin panel</p>
-    </div>
+    <Router></Router>
   ); 
 }
 

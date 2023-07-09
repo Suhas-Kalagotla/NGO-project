@@ -19,13 +19,6 @@ function NavComp() {
         <p id="logo">Logo</p>
       </Link>{/*image tag */}
       <ul className="nav__links">
-        { token ? (
-          user.role=="admin" &&
-          <li><Link to="/dashboard">Dashboard</Link></li>
-        ):(
-          <li></li>
-        )
-        } 
         <li><Link to ="/application">Application</Link> </li>
         <li><Link to ="#">About</Link> </li>
       </ul>
