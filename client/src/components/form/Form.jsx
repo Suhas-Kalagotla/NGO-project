@@ -7,7 +7,36 @@ import axios from 'axios';
 import { url } from '../../utils/url';
 import "./form.css"
 
+const user = JSON.parse(localStorage.getItem("user"));
+const userEmail=""; 
+if(user){
+  const userEmail=user.email;
+}
 
+
+const initialValues={
+  email:userEmail,
+  name:"",
+  fatherName:"",
+  motherName:"",
+  gender:"male",
+  dob:"",
+  category:"",
+  religion:"",
+  specialCategory:"",
+  number:"",
+  adharNumber:"",
+  address:"",
+  district:"",
+  pincode:"",
+  state:"",
+  permanentAddress:"",
+  permanentDistrict:"",
+  permanentPinCode:"",
+  permanentState:"",
+  class:"",
+  previousMarks:"",
+}
 
 export const validation = Yup.object({
   name:Yup.string().min(2).max(25).required("Please Enter your Name"),
@@ -36,34 +65,6 @@ export const validation = Yup.object({
 
 
 const Form =()=>{
-  const user = JSON.parse(localStorage.getItem("user"));
-  const userEmail=user.email;
-
-
-
-const initialValues={
-  email:userEmail,
-  name:"",
-  fatherName:"",
-  motherName:"",
-  gender:"male",
-  dob:"",
-  category:"",
-  religion:"",
-  specialCategory:"",
-  number:"",
-  adharNumber:"",
-  address:"",
-  district:"",
-  pincode:"",
-  state:"",
-  permanentAddress:"",
-  permanentDistrict:"",
-  permanentPinCode:"",
-  permanentState:"",
-  class:"",
-  previousMarks:"",
-}
 
   return(
      
@@ -83,7 +84,7 @@ const initialValues={
               <div className ="basicDetails">
                 <h2 className="heading">Basic Details</h2>
                 <div className ="mainContent">
-                  <div class="div1">
+                  <div className="div1">
                   <FormInput label="Name" name="name" placeholder="surname name"/>
                   <FormInput label="Father's Name" name="fatherName" placeholder="surname name"/>
                   <FormInput label="Mother's Name" name="motherName" placeholder="surname name"/>
@@ -118,7 +119,7 @@ const initialValues={
                   </div>
                   <FormInput label="Date of Birth" name="dob" type="text" placeholder="DD/MM/YYYY"/>
                   </div>
-                  <div class="div2">
+                  <div className="div2">
                   <FormInput label="Category" name="category" type="text" placeholder="SC/ST/OBC/SEBC"/>
                   <FormInput label="Religion" name="religion" type="text" placeholder="Hindu/Christian/Muslim"/>
                   <FormInput label="Special Category" name="specialCategory" type="text" placeholder="Blind/Deaf"/>

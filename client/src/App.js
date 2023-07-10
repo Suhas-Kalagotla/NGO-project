@@ -1,77 +1,43 @@
 import './App.css';
 import {
-  Navbar , Login ,Register,Applications,Divs,Form,
-  UserRoute,Home,Admin,AdminRoute,Dashboard,AdminApplications,
-  Volunteers,Sidebar
+  Navbar , Login ,Register,Applications,Form,Home,
+  PrivateRoute,Admin,Dashboard,AdminApplications,
+  Volunteers,Sidebar,PageNotFound,
 } from "./components";
-import React,{useState,useEffect}from 'react'; 
+import React,{useState}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
-
 
 function App(){
   const toggleForm =(formName)=>{
     setCurrentForm(formName); 
   }
+  const [token,setToken] = useState(localStorage.getItem("token")); 
   const [currentForm,setCurrentForm] = useState('login');
   const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="app">
       <Router>
-        <>
-            <Navbar/>
-            <Routes>  
-                <Route path="/login" element=
-                {
-                currentForm==="login"?<Login onFormSwitch={toggleForm}/>:<Register onFormSwitch={toggleForm}/>
-                }/>
-                <Route path="/application" element={
-                  <UserRoute>
-                    <Applications/>
-                  </UserRoute>
-                }/>
-                <Route path="/application/form" element ={
-                  <UserRoute>
-                    <Form/>
-                  </UserRoute>
-                }/>
-                
-                <Route path="/" element={
-                  <Home/>
-                }/>
-            </Routes>
-        {/* {
-          user?.role==="admin" && (
-            <Sidebar>
-            <Routes>
-            <Route path="/login" element=
-                {
-                currentForm==="login"?<Login onFormSwitch={toggleForm}/>:<Register onFormSwitch={toggleForm}/>
-            }/>
-            <Route path="/admin" element={
-              <Admin/>
-            }/>  
-            <Route path="/admin/dashboard" element={
-              <AdminRoute>
-                <Dashboard/>
-              </AdminRoute>
-            }/>
-            <Route path="/admin/applications" element={
-              <AdminRoute>
-                <AdminApplications/>
-              </AdminRoute>
-            }/>
-            <Route path="/admin/volunteers" element={
-              <AdminRoute>
-                <Volunteers/>
-              </AdminRoute>
-            }/>
-            </Routes>
-            </Sidebar>
-          )
-          } */}
-      </>
+      {user?.role !== "admin" && <Navbar setToken={setToken}/>}
+        <Routes>
+          <Route path="/pagenotfound" element={<PageNotFound/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/login" element=
+          {
+          currentForm==="login"?<Login onFormSwitch={toggleForm} setToken={setToken}/>:<Register onFormSwitch={toggleForm}/>
+          }/>
+          <Route path="/application" element={<PrivateRoute/>}>
+            <Route path="/application" element={<Applications/>}/>
+            <Route path="/application/form" element ={<Form/>}/>
+          </Route>
+          <Route path="/admin" element={<Sidebar setToken={setToken}><PrivateRoute userRole="admin"/></Sidebar>}>
+            <Route path="/admin" element={<Admin/>}/> 
+            <Route path="/admin/dashboard" element={<Dashboard/>}/>
+            <Route path="/admin/applications" element={<AdminApplications/>}/>
+            <Route path="/admin/volunteers" element={<Volunteers/>}/>
+          </Route> 
+        </Routes>
       </Router>
-    </div>
+    </div>  
   );
 }
 export default App;

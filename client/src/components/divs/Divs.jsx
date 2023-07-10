@@ -28,16 +28,16 @@ const Divs = (props)=>{
         <div>
           <img src={props.src} alt="img"/>
         </div>
-      </div>
-      <div className="text">
-        <small>{props.title}</small>
-        <h1>{props.heading}</h1>
-        <p>{props.para}</p>
-        <div className="links">
-        <a href="#">Read More &rarr;</a>
-        <button className="apply_btn"><Link to ="/application/form">Apply now</Link></button>
         </div>
-      </div>
+        <div className="text">
+          <small>{props.title}</small>
+          <h1>{props.heading}</h1>
+          <p>{props.para}</p>
+          <div className="links">
+          <a href="#">Read More &rarr;</a>
+          <button className="apply_btn"><Link to ="/application/form">Apply now</Link></button>
+          </div>
+        </div>
       </div>
     )}
     </div>

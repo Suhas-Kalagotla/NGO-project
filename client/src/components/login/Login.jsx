@@ -4,7 +4,7 @@ import axios from "axios";
 import { url } from '../../utils/url';
 import {useNavigate} from "react-router-dom"; 
  
-const Login =({onFormSwitch}) =>{
+const Login =({onFormSwitch,setToken}) =>{
   const [email,setEmail] = useState(''); 
   const [pass,setPass] = useState('');
   const [errors,setErrors] =useState( ); 
@@ -20,9 +20,10 @@ const Login =({onFormSwitch}) =>{
       localStorage.setItem("token",response.data.token);
       localStorage.setItem("user",JSON.stringify(response.data.user));
       const user = JSON.parse(localStorage.getItem("user")); 
-      if(user.role=="user"){
+      setToken(response.data.token); 
+      if(user.role==="user"){
         navigate("/");
-      }else if(user.role=="admin"){
+      }else if(user.role==="admin"){
         navigate("/admin"); 
       }
     }catch(err){

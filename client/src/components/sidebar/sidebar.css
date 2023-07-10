@@ -10,8 +10,8 @@ main{
   padding:20px;  
 }
 .sidebar{
-  background:#000; 
-  color:#fff; 
+  background:var(--color-nav); 
+  color:var(--color-nav-text); 
   height:100vh; 
 }
 
@@ -36,6 +36,7 @@ main{
   color:#fff; 
   padding:10px 15px; 
 }
+
 .icon > img , .bars > img{
   filter: invert(93%) sepia(100%) saturate(1%) hue-rotate(322deg) brightness(107%) contrast(101%);
 }

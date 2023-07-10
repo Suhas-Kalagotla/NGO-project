@@ -38,12 +38,16 @@ form {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  padding-bottom:10px ;
+  margin-bottom:18px;
+  margin-top:10px;  
 }
 
 .gender {
   width: 1rem;
   height: 1rem;
   margin-right:0.5rem;
+
 }
 
 form>button {

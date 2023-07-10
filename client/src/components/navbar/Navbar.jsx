@@ -1,18 +1,18 @@
 import React from 'react';
-import { useEffect } from 'react';
 import {Link} from "react-router-dom"; 
 import {Profile} from "../profile/Profile"; 
-import "./navbar.css";
 import { useNavigate } from 'react-router-dom';
+import "./navbar.css";
 
-function NavComp() {
+function NavComp({setToken}) {
   const navigate = useNavigate();
-  const logout=()=>{
+  const token = localStorage.getItem("token")
+  const user = JSON.parse(localStorage.getItem("user"));
+  const logOut=()=>{
+    setToken(""); 
     localStorage.clear();
     navigate("/login");
   }
-  const token = localStorage.getItem("token")
-  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <nav>
       <Link to="/">
@@ -28,7 +28,7 @@ function NavComp() {
             <Profile 
             name={`${user.name}`} 
             alt="" src="" 
-            logout={logout}
+            logout={logOut}
             />
         ):(
           <Link to="/login"><button className="navbar_btn">Login</button></Link>

@@ -3,12 +3,13 @@ import dashboardIcon from "../../images/dashboard.svg";
 import appIcon from "../../images/applications.svg"; 
 import volunteerIcon from "../../images/volunteers.svg"; 
 import bars from "../../images/bars.svg";
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate} from 'react-router-dom';
 import "./sidebar.css"; 
 
-const Sidebar = ({children}) =>{
+const Sidebar = ({children,setToken}) =>{
   const navigate = useNavigate(); 
-  const logout=()=>{
+  const logOut=()=>{
+    setToken(""); 
     localStorage.clear();
     navigate("/login");
   }
@@ -44,7 +45,7 @@ const Sidebar = ({children}) =>{
               </NavLink>
             ))
           }
-          <button class="logout" onClick={logout}>Logout</button>
+          <button className="logout" onClick={logOut}>Logout</button>
         
       </div>
       <main>{children}</main>
