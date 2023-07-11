@@ -30,7 +30,8 @@ const Index=()=>{
           </tr>
         </thead>
         <tbody>
-        {
+        
+        { 
           data.map((d, index) => ( 
             <Application data={d} key={index}/>
           ))

@@ -4,17 +4,20 @@ import appIcon from "../../images/applications.svg";
 import volunteerIcon from "../../images/volunteers.svg"; 
 import bars from "../../images/bars.svg";
 import logout from "../../images/logout.svg";
-import { NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate,useLocation} from 'react-router-dom';
 import "./sidebar.css"; 
 
 const Sidebar = ({children,setToken}) =>{
+  const location = useLocation(); 
+  console.log(location.pathname)
   const navigate = useNavigate(); 
+  
   const logOut=()=>{
     setToken(""); 
     localStorage.clear();
     navigate("/login");
   }
-  const[isOpen, setIsOpen] =useState(false);
+  const[isOpen, setIsOpen] =useState(true);
   const toggle=()=>setIsOpen(!isOpen); 
   const menuItem=[
     {
@@ -43,9 +46,11 @@ const Sidebar = ({children,setToken}) =>{
         </div>
           {
             menuItem.map((item,index)=>(
-              <NavLink to={item.path} key={index} className="link" activeclassname="active">
+              <NavLink to={item.path} key={index} className={`link ${location.pathname === item.path && "something"} `} > 
                 <div className="icon"><img src={item.icon}/></div>
                 <div style ={{display:isOpen ? "block" : "none"}} className="linkText"><p>{item.name}</p></div>
+                
+                
               </NavLink>
             ))
           }
