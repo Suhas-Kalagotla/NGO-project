@@ -4,7 +4,7 @@ import './profile.css';
 import user from "../../images/user.png"; 
 import settings from "../../images/settings.png"; 
 import edit from "../../images/edit.png"; 
-import logout_logo from "../../images/logout.png"; 
+import logout_logo from "../../images/logout.svg"; 
 
 export const Profile =({src,name,logout})=>{
   const [open,setOpen] = useState(false); 
@@ -54,8 +54,7 @@ export const Profile =({src,name,logout})=>{
             <a>Settings</a>
           </li>
           <li className = "dropdownItem" id="logout">
-            <img src={logout_logo}/>
-            <button onClick={logout}>Logout</button>
+            <button onClick={logout}><img src={logout_logo}/> Logout</button>
           </li>
         </ul>
       </div>

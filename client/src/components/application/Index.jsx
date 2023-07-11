@@ -19,12 +19,26 @@ const Index=()=>{
   },[]);
   
   return(
-  <>
-  {
-    data.map((d, index) => ( 
-      <Application data={d}/>
-  ))
-  }
+    <>
+    <div className="tableContainer">
+      <table className="userTable">
+        <thead>
+          <tr>
+            <th>Application</th>
+            <th>Created Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        {
+          data.map((d, index) => ( 
+            <Application data={d} key={index}/>
+          ))
+        }
+        </tbody>
+      </table>
+    </div>
+  
   <Link to="/application/form">
     <div className="newApply">
       <img src={add}/>

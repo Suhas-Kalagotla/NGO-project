@@ -1,23 +1,15 @@
-.appContainer{
-  width:80%;
-  margin:auto;
-  margin-top:1.5rem; 
-  background-color:whitesmoke;
-     
-  align-items:center;
-  border-radius:10px; 
-  font-size:1.5rem;
-  padding:0.5rem; 
+.row {
+  width:80%; 
+  background-color:var(--color-row-table); 
+  border:10px solid black; 
+  border-radius:5px; 
+  cursor:pointer; 
+}
+.row > td {
+  text-align:center; 
+  padding:20px; 
 }
 
-.status,.personDetails{
-  display:flex;
-  flex-direction:row;
-  justify-content: space-evenly;
-  margin-bottom:1rem;
-  align-items:center;
-}
-
-.icon{
-  cursor:pointer;
+.row:hover{
+  background-color:#F6CD61; 
 }

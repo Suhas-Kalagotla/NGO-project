@@ -2,26 +2,15 @@ import react,{useEffect,useState} from 'react'
 import './application.css';
 import Field from '../field/Field';
 import down from '../../images/down.png';
-const Application =({data})=>{
+const Application =({data,index})=>{
+  
   return(
-    <>
-    <div className="appContainer">
-      <div className="status">
-        <Field label="Name:" value={data.name}></Field>
-        <Field label="Application:" value="Scholarship"></Field>
-        <Field label="Status:" value="Pending"></Field>
-      </div>
-      <div className="personDetails">
-        <Field label="Email:" value={data.email}></Field>
-        <Field label="Father Name:" value={data.fatherName}></Field>
-        <Field label="Mother Name:" value ={data.motherName}></Field>
-        <img src={down} className="icon"/>
-      </div>
-      <div className="appDetails">
-      </div>
-    </div>
-    </>
-  )
+    <tr key={index} className="row">
+      <td>{data.name}</td>
+      <td>{data.updatedAt.slice(0,10)}</td>
+      <td>{data.email}</td>
+    </tr>
+  ) 
 }
 
 export default Application;

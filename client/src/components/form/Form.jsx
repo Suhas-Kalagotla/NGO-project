@@ -8,10 +8,8 @@ import { url } from '../../utils/url';
 import "./form.css"
 
 const user = JSON.parse(localStorage.getItem("user"));
-const userEmail=""; 
-if(user){
-  const userEmail=user.email;
-}
+const userEmail=user?.email;
+
 
 
 const initialValues={
@@ -75,7 +73,6 @@ const Form =()=>{
       onSubmit ={async(values)=>{
         const response = await axios.post(`${url}/application/form`,values);
         <Navigate to="application"/>
-        console.log("asdf")
       }}
       >
         {({handleSubmit, errors})=>{

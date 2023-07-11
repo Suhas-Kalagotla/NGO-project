@@ -34,6 +34,8 @@ body{
   --color-grey : #86B3D1;
   --color-div-text: #000; 
   --color-formDivs:#bae8f7; 
+  --color-row-table : #4A91F2;
+  --color-row-color:#ffffff; 
   /*Apply button variables*/
   --c : #229091; 
   --_g : linear-gradient(var(--c) 0 0 ) no-repeat; 

@@ -17,3 +17,22 @@
   filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
 }
 
+.tableContainer{
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+}
+.userTable{
+  width:80%;
+  border-collapse:separate; 
+  border-spacing:0 30px;  
+}
+ 
+.userTable > thead >tr >th {
+  font-size:2rem;  
+}
+.userTable > thead > tr {
+  margin:2rem; 
+  width:5rem; 
+}
+
