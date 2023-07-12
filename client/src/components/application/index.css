@@ -21,6 +21,7 @@
   display:flex; 
   align-items:center; 
   justify-content:center; 
+  flex-direction:column; 
 }
 .userTable{
   width:80%;
@@ -34,5 +35,15 @@
 .userTable > thead > tr {
   margin:2rem; 
   width:5rem; 
+}
+
+.noRecords{
+  width:80%; 
+  font-size:1.5rem;
+  margin-top:2rem;
+  text-align:center; 
+  align-items:center; 
+  padding:1rem;
+  background-color:var(--color-row-table); 
 }
 

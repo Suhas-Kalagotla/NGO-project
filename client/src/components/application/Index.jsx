@@ -21,23 +21,41 @@ const Index=()=>{
   return(
     <>
     <div className="tableContainer">
-      <table className="userTable">
-        <thead>
-          <tr>
-            <th>Application</th>
-            <th>Created Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-        
-        { 
-          data.map((d, index) => ( 
-            <Application data={d} key={index}/>
-          ))
-        }
-        </tbody>
-      </table>
+      {
+        data.length !== 0 ? (
+          <table className="userTable">
+            <thead>
+              <tr>
+                <th>Application</th>
+                <th>Created Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            {
+              data.map((d, index) => ( 
+                <Application data={d} key={index}/>
+                ))
+            }
+            </tbody>
+          </table>
+        ):
+        (
+          <>
+          <table className="userTable">
+            <thead>
+              <tr>
+                <th>Application</th>
+                <th>Created Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <h1 className="noRecords">No records found </h1>
+          </>
+        )
+      }
     </div>
   
   <Link to="/application/form">
