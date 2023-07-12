@@ -1,4 +1,4 @@
-.login_container {
+.loginContainer {
   margin: auto;
   margin-top: 2rem;
   display: flex;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.login_container form {
+.loginContainer form {
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.login_container form h1 {
+.loginContainer form h1 {
   text-align: center;
   margin-bottom: 24px;
   color: #222;
@@ -30,8 +30,8 @@
   background-color: #f7f7f7;
 }
 
-.login_container #email,
-.login_container #password {
+.loginContainer #email,
+.loginContainer #password {
   width: 100%;
   height: 40px;
   background: #fff;
@@ -42,7 +42,7 @@
   align-items: center;
 }
 
-.login_container form button {
+.loginButton {
   margin-left: 50%;
   transform: translate(-50%);
   width: 120px;
@@ -57,8 +57,11 @@
   border-radius: 4px;
   transition: .3s;
 }
+.loginButton:hover{
+  background-color:var(--color-nav-hover); 
+}
 
-.login_container p a {
+.loginContainer p a {
   color: black;
   cursor: pointer;
   text-decoration: underline;

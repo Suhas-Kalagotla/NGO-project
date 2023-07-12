@@ -57,7 +57,7 @@ label{
   background-color:#f7f7f7;
 }
 
-.register form button{
+.registerButton{
   margin-left:50%; 
   transform:translate(-50%); 
   width:120px; 
@@ -72,6 +72,9 @@ label{
   border-radius:4px; 
   transition:.3s; 
 }
+.registerButton:hover{
+  background-color:var(--color-nav-hover); 
+}
 
 .register p a {
   border:none; 
@@ -83,11 +86,10 @@ label{
 
 .exclamation,.circleCorrect{
   position:relative; 
-  left:-3rem; 
-  padding-top:0.5px; 
+  bottom:-8px; 
   width:1em; 
   height:1em; 
-  margin-left:1rem;
+  margin-left:3rem;
   visibility:hidden;
 }
 .circleCorrect{

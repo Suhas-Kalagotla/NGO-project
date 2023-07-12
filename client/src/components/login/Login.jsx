@@ -34,15 +34,20 @@ const Login =({onFormSwitch,setToken}) =>{
   }
 
   return(
-    <div className="login_container">
+    
+    <div className="loginContainer">
     <form onSubmit = {handleSubmit}>
       <h1>Login</h1>
       <label htmlFor="email">Email</label>
-      <input value ={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com"id="email"name="email"/>
+      <input value ={email} onChange={(e)=>setEmail(e.target.value)} type="email" 
+      placeholder="youremail@gmail.com"id="email"name="email"/>
+
       <label htmlFor="password">Password</label>
-      <input value = {pass} onChange={(e)=>setPass(e.target.value)} type="password" placeholder="****"id="password"name="password"/>
+      <input value = {pass} onChange={(e)=>setPass(e.target.value)} type="password" 
+      placeholder="****"id="password"name="password"/>
+      
       <p className="error">{errors && errors}</p>
-      <button className="">Log In</button>
+      <button className="loginButton">Log In</button>
     </form>
       <p>Don't have an acccount? <a onClick={()=>onFormSwitch('register')}>Register here</a></p>
     </div>
