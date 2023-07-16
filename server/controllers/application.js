@@ -11,7 +11,6 @@ export const CreateApplication = async(req,res)=>{
     res.status(201).json(savedApplication); 
   }catch(err){
     res.status(500).json({error:err.message}); 
-    
   }
 }
 

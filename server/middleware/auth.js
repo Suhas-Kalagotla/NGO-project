@@ -18,3 +18,12 @@ export const verifyToken = async(req,res,next)=>{
     res.status(500).json({error:err.message})
   }
 }
+
+export const checkAdmin = async(req,res,next)=>{
+  const {role} = req.body; 
+  if(role === "admin"){
+    next(); 
+  }else{
+    res.status(403).json({ error: 'Access denied. Admin access required.' });
+  }
+}
