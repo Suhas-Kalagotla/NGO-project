@@ -7,7 +7,13 @@ import {useNavigate} from "react-router-dom";
 const Login =({onFormSwitch,setToken}) =>{
   const [email,setEmail] = useState(''); 
   const [pass,setPass] = useState('');
+  const [passVisible,setVisible] = useState(false); 
   const [errors,setErrors] =useState( ); 
+
+  const toggleVisibility = ()=>{
+    setVisible(!passVisible); 
+  }
+
   const navigate = useNavigate();
 
   const handleSubmit =async (e)=>{
@@ -43,11 +49,17 @@ const Login =({onFormSwitch,setToken}) =>{
       placeholder="youremail@gmail.com"id="email"name="email"/>
 
       <label htmlFor="password">Password</label>
-      <input value = {pass} onChange={(e)=>setPass(e.target.value)} type="password" 
+      <div className="loginDiv">
+      <input value = {pass} onChange={(e)=>setPass(e.target.value)} 
+      type={passVisible ? "text": "password"} 
       placeholder="****"id="password"name="password"/>
+      <button onClick={toggleVisibility} type="button" className="passToggle">
+        {passVisible ? "Hide Password" : "Show Password"}
+      </button>
+      </div>
       
       <p className="error">{errors && errors}</p>
-      <button className="loginButton">Log In</button>
+      <button className="loginButton" type="submit">Log In</button>
     </form>
       <p>Don't have an acccount? <a onClick={()=>onFormSwitch('register')}>Register here</a></p>
     </div>

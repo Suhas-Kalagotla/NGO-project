@@ -149,7 +149,7 @@ const Form =()=>{
                     </div>
                   </div>
               </div>
-              <button type="submit">Apply</button>
+              <button type="submit" className="formSubmit">Apply</button>
             </form>
           )
         }}

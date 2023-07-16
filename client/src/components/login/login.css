@@ -72,3 +72,8 @@
   font-size:1rem; 
   color:red;
 }
+
+.passToggle{
+  cursor:pointer; 
+  text-decoration:none;  
+}
