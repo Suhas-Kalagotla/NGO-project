@@ -10,8 +10,6 @@ import "./form.css"
 const user = JSON.parse(localStorage.getItem("user"));
 const userEmail=user?.email;
 
-
-
 const initialValues={
   email:userEmail,
   name:"",

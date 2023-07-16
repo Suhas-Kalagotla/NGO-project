@@ -38,12 +38,10 @@
 }
 
 .noRecords{
-  width:80%; 
-  font-size:1.5rem;
-  margin-top:2rem;
   text-align:center; 
-  align-items:center; 
-  padding:1rem;
-  background-color:var(--color-row-table); 
+  color:blue; 
+  font-size:2rem; 
+  background-color:white; 
+  padding:0.5rem;
 }
 

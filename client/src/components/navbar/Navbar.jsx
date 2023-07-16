@@ -19,6 +19,7 @@ function NavComp({setToken}) {
         <p id="logo">Logo</p>
       </Link>{/*image tag */}
       <ul className="nav__links">
+        <li><Link to="/">Home</Link></li>
         <li><Link to ="/application">Application</Link> </li>
         <li><Link to ="#">About</Link> </li>
       </ul>

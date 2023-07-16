@@ -9,7 +9,6 @@ import "./sidebar.css";
 
 const Sidebar = ({children,setToken}) =>{
   const location = useLocation(); 
-  console.log(location.pathname)
   const navigate = useNavigate(); 
   
   const logOut=()=>{
@@ -49,8 +48,6 @@ const Sidebar = ({children,setToken}) =>{
               <NavLink to={item.path} key={index} className={`link ${location.pathname === item.path && "something"} `} > 
                 <div className="icon"><img src={item.icon}/></div>
                 <div style ={{display:isOpen ? "block" : "none"}} className="linkText"><p>{item.name}</p></div>
-                
-                
               </NavLink>
             ))
           }
