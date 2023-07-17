@@ -30,7 +30,7 @@ const Login =({onFormSwitch,setToken}) =>{
       if(user.role==="user"){
         navigate("/");
       }else if(user.role==="admin"){
-        navigate("/admin"); 
+        navigate("/admin/dashboard"); 
       }
     }catch(err){
       const msg = err.response.data.msg;

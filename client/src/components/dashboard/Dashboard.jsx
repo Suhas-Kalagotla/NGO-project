@@ -4,9 +4,7 @@ import "./dashboard.css"
 const Dashboard = ()=>{
   return(
     <div>
-      <InfoBox>
-        
-      </InfoBox>
+      <InfoBox/>
     </div>
   )
 }

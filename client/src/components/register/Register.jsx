@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {url} from "../../utils/url";
 
 const Register = ({ onFormSwitch }) => {
-  const initialValues = { name: "", email: "", pass: "", conPass: "",role:"user",number:null};
+  const initialValues = { name: "", email: "", pass: "", conPass: "",role:"user",number:null,address:null};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -64,6 +64,9 @@ const Register = ({ onFormSwitch }) => {
       errors.number="Please Enter Number"
     }else if(values.number.toString().length !==10){
       errors.number="Please Enter Valid Number"
+    }
+    if(!values.address){
+      errors.address="Please Enter Address"
     }
   }
     setFormErrors(errors); 
@@ -138,7 +141,7 @@ const Register = ({ onFormSwitch }) => {
         </div>
 
         { formValues.role==="volunteer" &&  
-
+          <>
           <div className={`formControl ${formErrors.number && "fail"}`}>
           <label htmlFor="number">Contact number</label>
           <input value={formValues.number}
@@ -146,10 +149,23 @@ const Register = ({ onFormSwitch }) => {
             id="number"
             name="number"
             type="number"
-          />
+            />
           <img className="exclamation" src={Exclamation} />
           <small className="error">{formErrors.number}</small>
           </div>
+
+          <div className={`formControl ${formErrors.address && "fail"}`}>
+          <label>Address</label>
+          <input value={formValues.address}
+            onChange={handleChange}
+            id="address"
+            name="address"
+            placeholder="Area Name"
+            />
+          <img className="exclamation" src={Exclamation} />
+          <small className="error">{formErrors.address}</small>
+          </div>
+          </>
         }
 
         <button className="registerButton">Register</button>

@@ -24,6 +24,7 @@ const Index=()=>{
       <table className="userTable">
         <thead>
           <tr>
+            <th>S.no</th>
             <th>Application</th>
             <th>Created Date</th>
             <th>Status</th>
@@ -33,7 +34,7 @@ const Index=()=>{
         {
           data.length !== 0 ? (
           data.map((d, index) => ( 
-            <Application data={d} key={index}/>
+            <Application data={d} key={index} index={index}/>
             ))
         ):
           (

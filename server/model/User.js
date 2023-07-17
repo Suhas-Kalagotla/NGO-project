@@ -42,6 +42,10 @@ const UserSchema = new mongoose.Schema(
       type:String,
       required:false,
     },
+    address:{
+      type:String,
+      required:false,
+    },
     resetPasswordToken:String,
     resetPasswordExpire:Date,
   },{timestamps:true}
