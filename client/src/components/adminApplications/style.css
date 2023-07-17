@@ -1,0 +1,15 @@
+.adminApplication{
+  width:100%; 
+  height:98vh; 
+  background-color:snow;
+  overflow:auto; 
+}
+.adminApplication > table {
+  width:100%; 
+}
+.adminRow{
+  width:100%; 
+}
+.adminBodyRow{
+  text-align:center; 
+}

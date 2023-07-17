@@ -6,11 +6,10 @@ import {url} from "../../utils/url";
 const InfoBox = ()=>{
   const [count,setCount] = useState(""); 
   const user = JSON.parse(localStorage.getItem("user")); 
-  const role = user.role; 
   const fetchCount =async()=>{
     try{
       const response = await axios.post(`${url}/admin/dashboard/count`,{
-        role
+        role:user.role
       })
       setCount(response.data.count);  
     }catch(err){
