@@ -35,17 +35,18 @@ const Home =()=>{
     {
       Content.map((item,index)=>(
         <Divs 
-          key={index}
-          title={item.title}
-          heading={item.heading}
-          para={item.para}
-          src={item.src}
-          direction={item.direction}
+        key={index}
+        title={item.title}
+        heading={item.heading}
+        para={item.para}
+        src={item.src}
+        direction={item.direction}
         />
-      ))
-    }
+        ))
+      }
     </>
-  )
+    )
+  
 }
 
 export default Home ; 

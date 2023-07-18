@@ -44,7 +44,7 @@ const Form =()=>{
       >
         {({handleSubmit, errors})=>{
           return(
-            <form noValidate onSubmit={handleSubmit}>
+            <form noValidate onSubmit={handleSubmit} className="applicationForm">
               <div className ="basicDetails">
                 <h2 className="heading">Basic Details</h2>
                 <div className ="mainContent">

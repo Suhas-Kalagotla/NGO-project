@@ -3,17 +3,17 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding-left:2rem;
-  padding-right:2rem;
   height:3.5rem; 
   position:relative; 
   font-size:1.5rem ;
 }
 
-
 .nav__links {
   width:100%; 
-  text-align:right; 
+  display:flex; 
+  justify-content:end;
+  flex-wrap:wrap; 
+  margin:0px; 
 }
 .nav__links li {
   display:inline-block; 
