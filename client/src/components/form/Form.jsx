@@ -2,7 +2,8 @@ import react from 'react';
 import FormInput from '../formInput/FormInput';
 import {useNavigate} from 'react-router-dom'
 import * as Yup from "yup"; 
-import {Formik} from "formik";
+import {Formik, Field} from "formik";
+import Select from "react-select"; 
 import axios from 'axios';
 import { url } from '../../utils/url';
 import "./form.css"
@@ -17,7 +18,7 @@ const initialValues={
   number:"",
   address:"",
   status:"Pending",
-  
+  type:"Scholarship",
 }
 
 export const validation = Yup.object({
@@ -25,11 +26,11 @@ export const validation = Yup.object({
   gender:Yup.string().required("Please Enter Gender"),
   number:Yup.number().required("Please Enter Phone Number"),
   address:Yup.string().required("Please Enter Address"),
+  type:Yup.string().required("Please select Type"),
 });
 
 
 const Form =()=>{
-  
   const navigate = useNavigate(); 
   return(
      
@@ -42,7 +43,7 @@ const Form =()=>{
         navigate("/application");
       }}
       >
-        {({handleSubmit, errors})=>{
+        {({handleSubmit, errors,setFieldValue,values})=>{
           return(
             <form noValidate onSubmit={handleSubmit} className="applicationForm">
               <div className ="basicDetails">
@@ -50,7 +51,6 @@ const Form =()=>{
                 <div className ="mainContent">
                   <div className="div1">
                   <FormInput label="Name" name="name" placeholder="surname name"/>
-                  <div>
                   <label>Gender</label>
                   <div className="options">
                   <label>
@@ -71,13 +71,12 @@ const Form =()=>{
                   </label>
                   <label>
                   <input 
-                  onChange={()=>{initialValues.gender="female"}}
+                  onChange={()=>{initialValues.gender="others"}}
                   type="radio"
                   name="gender"
                   className="gender"
                   value="others"/>Others
                   </label>
-                  </div>
                   </div>
                   </div>
                   <div className="div2">
@@ -86,7 +85,40 @@ const Form =()=>{
                   </div>
                 </div>  
               </div>
-
+              <div className = "renderForm">
+                <div className="selectForm">
+                    <label htmlFor="type">Application for : </label>
+                    <Field as="select" name="type" className="type"
+                      style={{ height: '40px' }}
+                      onChange={(e) => {
+                        setFieldValue('type', e.target.value);
+                      }}
+                    >
+                      <option value="Scholarship">Scholarship</option>
+                      <option value="Infrastructure">School Infrastructure</option>
+                      <option value="Programm">Awareness Programm</option>
+                    </Field>
+                </div>
+                { 
+                  values.type==="Scholarship" && 
+                  <div className="scholarship">
+                    <div className="div1"></div>
+                    <div className="div2"></div>
+                  </div>
+                }
+                {
+                  values.type==="Infrastructure" && 
+                  <div className="infrastructure">
+                    <p>infrastructure</p>
+                  </div>
+                } 
+                {
+                  values.type==="Programm" && 
+                  <div className="programm">
+                    <p>programm</p>
+                  </div>
+                }
+              </div>
               <button type="submit" className="formSubmit">Apply</button>
             </form>
           )

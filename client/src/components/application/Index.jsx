@@ -25,7 +25,7 @@ const Index=()=>{
         <thead>
           <tr>
             <th>S.no</th>
-            <th>Application</th>
+            <th>Type</th>
             <th>Created Date</th>
             <th>Status</th>
           </tr>
@@ -39,7 +39,7 @@ const Index=()=>{
         ):
           (
             <tr>
-            <td colSpan={3} className="noRecords">No records found </td>
+            <td colSpan={4} className="noRecords">No records found </td>
             </tr>
           )
         }

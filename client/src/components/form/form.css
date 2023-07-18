@@ -2,7 +2,7 @@
   margin: auto;
   font-size:1.5rem;
 }
-.basicDetails , .addressDetails , .educationalDetails{
+.basicDetails , .renderForm{
   margin:1rem; 
   display:flex; 
   flex-direction:column; 
@@ -69,3 +69,27 @@
   top:2rem;
   right:2rem; 
 }  */
+
+.renderForm{
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  text-align:center; 
+}
+.selectForm{
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  text-align:center; 
+  width:80%; 
+  gap:2rem;
+}
+.type{
+  width:50%; 
+}
+
+.selectForm  option{
+  font-size:1rem;  
+  align-items:center; 
+  
+}

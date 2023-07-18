@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 const Divs = (props)=>{
   const navigate = useNavigate(); 
   const navigateApp = ()=>{
-    navigate("/application")
+    navigate("/application/form")
   }
   return(
     <>

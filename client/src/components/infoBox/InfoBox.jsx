@@ -21,10 +21,19 @@ const InfoBox = ()=>{
     fetchCount(); 
   },[]);
 
+  const info = [
+    {
+      name: "Applications", 
+      
+    },
+  ]
+
   return(
+    <>
     <div className="applicationsInfo">
           <p>count = {count}</p>
     </div>
+    </>
   )
 }
 

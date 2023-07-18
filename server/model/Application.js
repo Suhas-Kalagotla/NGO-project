@@ -25,6 +25,10 @@ const ApplicationSchema = new mongoose.Schema(
   status:{
     type:String,
     required:true,
+  },
+  type:{
+    type:String,
+    required:true,
   }
   },{timestamps:true} 
 ) ;

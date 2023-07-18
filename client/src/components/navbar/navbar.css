@@ -3,6 +3,8 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding-left:1rem; 
+  padding-right:2rem; 
   height:3.5rem; 
   position:relative; 
   font-size:1.5rem ;
