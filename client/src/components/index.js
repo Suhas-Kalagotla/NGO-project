@@ -12,3 +12,4 @@ export {default as Dashboard} from "./dashboard/Dashboard";
 export {default as AdminApplications} from "./adminApplications/AdminApplications";
 export {default as Volunteers} from "./volunteers/Volunteers"; 
 export {default as PageNotFound} from "./pageNotFound/PageNotFound"; 
+export {default as Footer} from "./footer/Footer"; 

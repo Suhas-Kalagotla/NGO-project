@@ -29,7 +29,19 @@ const ApplicationSchema = new mongoose.Schema(
   type:{
     type:String,
     required:true,
-  }
+  },
+  qualification:{
+    type:String,
+    required:false, 
+  },
+  prevQualification:{
+    type:String,
+    required:false, 
+  },
+  description:{
+    type:String, 
+    required:false, 
+  },
   },{timestamps:true} 
 ) ;
 

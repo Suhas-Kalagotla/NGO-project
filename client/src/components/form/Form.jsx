@@ -19,6 +19,9 @@ const initialValues={
   address:"",
   status:"Pending",
   type:"Scholarship",
+  qualification:"",
+  prevQualification:"",
+  description:"",
 }
 
 export const validation = Yup.object({
@@ -27,6 +30,8 @@ export const validation = Yup.object({
   number:Yup.number().required("Please Enter Phone Number"),
   address:Yup.string().required("Please Enter Address"),
   type:Yup.string().required("Please select Type"),
+  qualification:Yup.string().required("Please Enter Qualification"),
+  prevQualification:Yup.string().required("Please Enter Previous Qualification"),
 });
 
 
@@ -102,8 +107,19 @@ const Form =()=>{
                 { 
                   values.type==="Scholarship" && 
                   <div className="scholarship">
-                    <div className="div1"></div>
-                    <div className="div2"></div>
+                    <div className="div1">
+                      <FormInput label="Qualification" name="qualification" type="text" placeholder=""/>
+                      <FormInput label="Previous Qualification" name="prevQualification" type="text" placeholder=""/>
+                    </div>
+                    <div className="div2">
+                      <label>Reason for application</label>
+                      <div className="textAreaWrapper">
+                      <Field as="textarea" name="description"
+                      placeholder="Enter your response">
+
+                      </Field>
+                      </div>
+                    </div>
                   </div>
                 }
                 {

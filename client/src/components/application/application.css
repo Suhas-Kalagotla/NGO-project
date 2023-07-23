@@ -1,6 +1,7 @@
 .row {
   width:80%; 
   background-color:var(--color-row-table); 
+  color:#fff; 
   cursor:pointer; 
 }
 .row > td {
@@ -10,10 +11,14 @@
 }
 
 .row:hover{
-  background-color:#F6CD61; 
+  background-color:#fff; 
+  color : #000; 
 }
 
 .roudedCellLeft {
   border-top-left-radius:5px; 
   border-bottom-left-radius:5px ; 
 }
+/* .pending{
+  background-color:orange; 
+} */

@@ -30,7 +30,7 @@
 }
  
 .userTable > thead >tr >th {
-  font-size:2rem;  
+  font-size:1.5rem;  
 }
 .userTable > thead > tr {
   margin:2rem; 
@@ -40,7 +40,7 @@
 .noRecords{
   text-align:center; 
   color:blue; 
-  font-size:2rem; 
+  font-size:1.5rem; 
   background-color:white; 
   padding:0.5rem;
 }

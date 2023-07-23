@@ -1,6 +1,6 @@
 import react from 'react'
 import {useField} from 'formik'
-import "./input.css"
+import "./formInput.css"
 const FormInput =({label,name,placeholder,type})=>{
   const [field,meta] = useField(name);
   const isError = Boolean(meta.touched && meta.error);

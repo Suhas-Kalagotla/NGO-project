@@ -3,7 +3,7 @@ import Divs from '../divs/Divs';
 import scholarship from "../../images/Scholarship.webp"; 
 import infra from "../../images/school.jpeg"; 
 import education from "../../images/education.jpeg"; 
-
+import Footer from "../footer/Footer"; 
 const Home =()=>{
 
   const Content=[
@@ -44,6 +44,7 @@ const Home =()=>{
         />
         ))
       }
+      <Footer/>
     </>
     )
   

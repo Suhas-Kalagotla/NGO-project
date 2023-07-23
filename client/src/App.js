@@ -2,7 +2,7 @@ import './App.css';
 import {
   Navbar , Login ,Register,Applications,Form,Home,
   PrivateRoute,Admin,Dashboard,AdminApplications,
-  Volunteers,Sidebar,PageNotFound,
+  Volunteers,Sidebar,PageNotFound,Footer
 } from "./components";
 import React,{useState}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
