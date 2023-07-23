@@ -24,9 +24,9 @@ const AdminApplications = () =>{
 
   return (
     <div className="adminApplication">
-    <table>
+    <table class="applicationTable">
       <thead>
-        <tr className="adminRow">
+        <tr>
           <th>S.No</th>
           <th>Name</th>
           <th>Email</th>
