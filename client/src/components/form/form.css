@@ -12,7 +12,7 @@
   box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
-.mainContent,.scholarship{ 
+.mainContent,.scholarship,.infrastructure,.programm{ 
   color:black; 
   display:flex;  
   justify-content: space-around;
@@ -96,16 +96,25 @@
   
 }
 
-.scholarship{
+.scholarship,.infrastructure,.programm{
   width:100%; 
 }
 .textAreaWrapper{
-  height:90%; 
-  overflow:hidden; 
+  height:80%; 
 }
 .textAreaWrapper textarea{
-  width:90%; 
-  height:90%; 
+  width:80%; 
+  height:80%; 
   font-size:1.2rem; 
   min-height:200px; 
+}
+
+.textAreaWrapper > textarea.error{
+  border: 2px solid ; 
+  border-color:var(--color-error-input); 
+}
+
+.fail-text{
+  color:var(--color-error-input);
+  font-size:1rem;
 }

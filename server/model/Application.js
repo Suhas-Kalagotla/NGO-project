@@ -42,6 +42,14 @@ const ApplicationSchema = new mongoose.Schema(
     type:String, 
     required:false, 
   },
+  schoolName:{
+    type:String,
+    required:false,
+  },
+  schoolLocation:{
+    type:String,
+    required:false,
+  }
   },{timestamps:true} 
 ) ;
 

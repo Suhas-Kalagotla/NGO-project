@@ -12,7 +12,7 @@
   bottom:2rem;
   font-size:1rem;
 }
-.newApply > img{
+.newApply img{
   margin-right:0.5rem;
   filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
 }
@@ -29,10 +29,10 @@
   border-spacing:0 30px;  
 }
  
-.userTable > thead >tr >th {
+.userTable th {
   font-size:1.5rem;  
 }
-.userTable > thead > tr {
+.userTable tr {
   margin:2rem; 
   width:5rem; 
 }

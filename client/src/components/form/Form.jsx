@@ -1,9 +1,7 @@
-import react from 'react'; 
 import FormInput from '../formInput/FormInput';
 import {useNavigate} from 'react-router-dom'
 import * as Yup from "yup"; 
-import {Formik, Field} from "formik";
-import Select from "react-select"; 
+import {Formik, Field,useField} from "formik";
 import axios from 'axios';
 import { url } from '../../utils/url';
 import "./form.css"
@@ -22,6 +20,10 @@ const initialValues={
   qualification:"",
   prevQualification:"",
   description:"",
+  schoolName:"",
+  schoolLocation:"",
+  infraModification:"",
+  programmLocation:"",
 }
 
 export const validation = Yup.object({
@@ -30,8 +32,32 @@ export const validation = Yup.object({
   number:Yup.number().required("Please Enter Phone Number"),
   address:Yup.string().required("Please Enter Address"),
   type:Yup.string().required("Please select Type"),
-  qualification:Yup.string().required("Please Enter Qualification"),
-  prevQualification:Yup.string().required("Please Enter Previous Qualification"),
+  description:Yup.string().required("Please Enter your response"),
+  qualification:Yup.string().when('type',{
+    is:(value)=>value==="Scholarship",
+    then:(validation)=>validation.required("Please Enter Qualification"),
+  }),
+  prevQualification:Yup.string().when('type',{
+    is:(value)=>value==="Scholarship",
+    then:(validation)=>validation.required("Please Enter Previous Qualification"),
+  }),
+
+  schoolName:Yup.string().when('type',{
+    is: (value) => value === "Infrastructure", 
+    then:(validation)=>validation.required("Please Enter Name of the School"), 
+   }),
+  schoolLocation:Yup.string().when('type',{
+    is:(value)=>value ==="Infrastructure",
+    then:(validation)=>validation.required("Please Enter the Location of School"),
+  }),
+  infraModification:Yup.string().when('type',{
+    is: (type) => type === "Infrastructure", 
+    then:(validation)=>validation.required("Please Enter the Answer"), 
+  }),
+  programmLocation:Yup.string().when('type',{
+    is:(type)=>type=== "Programm",
+    then:(validation)=>validation.required("Please Enter the location"),
+  }),
 });
 
 
@@ -112,27 +138,34 @@ const Form =()=>{
                       <FormInput label="Previous Qualification" name="prevQualification" type="text" placeholder=""/>
                     </div>
                     <div className="div2">
-                      <label>Reason for application</label>
-                      <div className="textAreaWrapper">
-                      <Field as="textarea" name="description"
-                      placeholder="Enter your response">
-
-                      </Field>
-                      </div>
+                      <TextArea name="description"/>
                     </div>
                   </div>
                 }
                 {
                   values.type==="Infrastructure" && 
                   <div className="infrastructure">
-                    <p>infrastructure</p>
+                    <div className="div1">
+                      <FormInput label="Name of the School" name="schoolName" type="text" placeholder=""/>
+                      <FormInput label="School Location" name="schoolLocation" type="text" placeholder=""/>
+                      <FormInput label="Infrastructure to provide / modify" name="infraModification" type="text" placeholder=""/>
+                    </div>
+                    <div className="div2">
+                      <TextArea name="description"/>
+                    </div>
                   </div>
                 } 
                 {
                   values.type==="Programm" && 
                   <div className="programm">
-                    <p>programm</p>
+                    <div className="div1">
+                    <FormInput label="Programm Location" name="programmLocation" type="text" placeholder=""/>
+                    </div>
+                    <div className="div2">
+                      <TextArea name="description"/>
+                    </div>
                   </div>
+
                 }
               </div>
               <button type="submit" className="formSubmit">Apply</button>
@@ -145,7 +178,23 @@ const Form =()=>{
   </div>
   )
 }
-
+const TextArea = ({name}) =>{
+  const [field,meta] = useField(name);
+  const isError = Boolean(meta.touched && meta.error);
+  return(
+    <>
+      <label>Describe your Requirement</label>
+      <div className="textAreaWrapper">
+      <Field as="textarea" name={name}
+      placeholder="Enter your response"
+      id={name}
+      className={`${isError && "error"}`}>
+      </Field>
+      <p className={`${isError && "fail-text"}`}>{isError && meta.error}</p>
+      </div>
+    </>
+  )
+}
 
 
 export default Form; 

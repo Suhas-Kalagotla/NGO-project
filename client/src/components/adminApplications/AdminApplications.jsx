@@ -24,13 +24,14 @@ const AdminApplications = () =>{
 
   return (
     <div className="adminApplication">
-    <table class="applicationTable">
+    <table className="applicationTable">
       <thead>
         <tr>
           <th>S.No</th>
           <th>Name</th>
           <th>Email</th>
           <th>Type</th>
+          <th>Date</th>
           <th>Validate</th>
           <th>Delete</th>
         </tr>
@@ -42,6 +43,7 @@ const AdminApplications = () =>{
             <td>{index+1}</td>
             <td>{item.name}</td>
             <td>{item.email}</td>
+            <td>{item.type}</td>
             <td>{item.updatedAt.slice(0,10)}</td>
             <td><ValidateButton/></td>
             <td><AppDelete user={user} id={item._id} fetch={getApplications}/></td>
