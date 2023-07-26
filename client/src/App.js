@@ -1,7 +1,7 @@
 import './App.css';
 import {
   Navbar , Login ,Register,Applications,Form,Home,
-  PrivateRoute,Admin,Dashboard,AdminApplications,
+  PrivateRoute,Dashboard,AdminApplications,
   Volunteers,Sidebar,PageNotFound,Footer
 } from "./components";
 import React,{useState}from 'react'; 
@@ -30,7 +30,6 @@ function App(){
             <Route path="/application/form" element ={<Form/>}/>
           </Route>
           <Route path="/admin" element={<Sidebar setToken={setToken}><PrivateRoute userRole="admin"/></Sidebar>}>
-            <Route path="/admin" element={<Admin/>}/> 
             <Route path="/admin/dashboard" element={<Dashboard/>}/>
             <Route path="/admin/applications" element={<AdminApplications/>}/>
             <Route path="/admin/volunteers" element={<Volunteers/>}/>

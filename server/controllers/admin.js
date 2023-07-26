@@ -1,5 +1,5 @@
 import Application from "../model/Application.js";
-
+import User from "../model/User.js"; 
 const app = Application; 
 
 export const getCount=async(req,res)=>{
@@ -11,6 +11,17 @@ export const getCount=async(req,res)=>{
     res.status(500).json({error : "Internal server error"}); 
   }
 };
+
+export const countUser=async(req,res)=>{
+  const {searchUser} = req.body; 
+  try{
+    const countUser = await User.countDocuments({role:searchUser}); 
+    res.json({countUser}); 
+  }catch(error){
+    console.error("Error getting count of user",error); 
+    res.status(500).json({error : "Internal server error"}); 
+  }
+}
 
 export const getApp = async (req,res)=>{
   try{

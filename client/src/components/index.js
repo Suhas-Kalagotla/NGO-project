@@ -6,7 +6,6 @@ export {default as Divs} from "./divs/Divs.jsx";
 export {default as Applications} from "./application/Index"; 
 export {default as Form} from "./form/Form"; 
 export {default as PrivateRoute} from "./privateRoute/PrivateRoute";
-export {default as Admin} from "./admin/Admin"; 
 export {default as Sidebar} from "./sidebar/Sidebar"; 
 export {default as Dashboard} from "./dashboard/Dashboard"; 
 export {default as AdminApplications} from "./adminApplications/AdminApplications";
