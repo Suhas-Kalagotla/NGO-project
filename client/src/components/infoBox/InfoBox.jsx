@@ -4,7 +4,6 @@ import {url} from "../../utils/url";
 import apply from "../../images/apply.svg"; 
 import volunteer from "../../images/volunteer.svg"; 
 import moneySpent from "../../images/moneySpent.svg";
-import CountingAnimation from '../countAnimation/countAnimation'; 
 import "./infobox.css"; 
 
 const InfoBox = ()=>{

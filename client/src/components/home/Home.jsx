@@ -4,6 +4,8 @@ import scholarship from "../../images/Scholarship.webp";
 import infra from "../../images/school.jpeg"; 
 import education from "../../images/education.jpeg"; 
 import Footer from "../footer/Footer"; 
+import Impact from "../impact/Impact"; 
+import "./home.css"; 
 const Home =()=>{
 
   const Content=[
@@ -32,6 +34,7 @@ const Home =()=>{
                   
   return (
     <>
+    <div className="homeContainer">
     {
       Content.map((item,index)=>(
         <Divs 
@@ -44,7 +47,9 @@ const Home =()=>{
         />
         ))
       }
-      <Footer/>
+    </div>
+    <Impact/>
+    <Footer/>
     </>
     )
   

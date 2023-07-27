@@ -4,10 +4,10 @@
   overflow: hidden;
   flex-wrap: wrap;
   width: 90%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding:2rem; 
   color: #f1f1f1;
-  background: none;
+  background: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   border-radius: 15px;
   color: var(--color-div-text);
@@ -57,6 +57,7 @@
 .skewed-left .text {
   width: 60%;
 }
+
 
 .links {
   color: var(--color-div-text);
