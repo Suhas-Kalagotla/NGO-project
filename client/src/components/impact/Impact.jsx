@@ -13,7 +13,7 @@ const Impact = () =>{
         getApplication:"Scholarship", // in database value is in capital 
         status:"Pending",
       })
-      if(response.status == 200){
+      if(response.status === 200){
         console.log(response); 
         setFetched(true); 
         setScholarshipCount(response.data.count); 

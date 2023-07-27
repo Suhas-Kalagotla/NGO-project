@@ -59,6 +59,7 @@ main{
   text-decoration: none;
   border:none; 
   gap:15px; 
+  cursor:pointer; 
 }
 
 .icon > img , .bars > img , .logout > img{

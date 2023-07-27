@@ -1,6 +1,7 @@
 import axios from 'axios';
 import react ,{useEffect,useState} from 'react'; 
 import {url} from "../../utils/url"; 
+import {Link} from 'react-router-dom'; 
 import apply from "../../images/apply.svg"; 
 import volunteer from "../../images/volunteer.svg"; 
 import moneySpent from "../../images/moneySpent.svg";
@@ -43,12 +44,14 @@ const InfoBox = ()=>{
       count:countApplications,
       logo:apply, 
       color:"#8ECAe6",
+      url:"/admin/applications",
     },
     {
       name:"Volunteers",
       count :countVolunteers,
       logo : volunteer, 
       color:"#ffb703",
+      url:"/admin/volunteers", 
     },
     {
       name:"Money Spent", 
@@ -66,6 +69,7 @@ const InfoBox = ()=>{
     <div className="infoContainer">
     {
       info.map((info,index)=>(
+        <Link to={info.url}>
         <div className="info" key ={index} style={{backgroundColor:info.color}}>
           <div className="top">
           <div className="count">{info.count}</div>
@@ -73,6 +77,7 @@ const InfoBox = ()=>{
           </div>
           <div className="infoName">{info.name}</div>
         </div>
+        </Link>
       ))
     }
     </div>

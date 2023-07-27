@@ -39,3 +39,8 @@
 .count{
   font-size:2rem; 
 }
+
+.infoContainer a {
+  color:inherit; 
+  
+}

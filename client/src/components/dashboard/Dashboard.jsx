@@ -3,7 +3,8 @@ import InfoBox from '../infoBox/InfoBox'
 import "./dashboard.css"
 const Dashboard = ()=>{
   return(
-    <div>
+    <div className="dashboard">
+      <h2>Dashboard</h2>
       <InfoBox/>
     </div>
   )
