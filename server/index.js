@@ -8,6 +8,7 @@ import applicationRoutes from "./routes/application.js";
 import adminRoutes from "./routes/admin.js"; 
 import userRoutes from "./routes/user.js"; 
 import {checkAdmin}  from './middleware/auth.js';
+
 const app = express(); 
 
 app.use(bodyParser.json({limit:"30mb",extended:true}));

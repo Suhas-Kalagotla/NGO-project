@@ -29,7 +29,7 @@ const Impact = () =>{
   },[isFetched]);
   const data = [
     {
-      name: "Scholarship",
+      name: "Scholarships",
       count:scholarshipCount,
       description:"Are provided to students",
     },

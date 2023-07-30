@@ -2,7 +2,7 @@ import './App.css';
 import {
   Navbar , Login ,Register,Applications,Form,Home,
   PrivateRoute,Dashboard,AdminApplications,
-  Volunteers,Sidebar,PageNotFound,Footer
+  Volunteers,Sidebar,PageNotFound,Money
 } from "./components";
 import React,{useState}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
@@ -33,6 +33,7 @@ function App(){
             <Route path="/admin/dashboard" element={<Dashboard/>}/>
             <Route path="/admin/applications" element={<AdminApplications/>}/>
             <Route path="/admin/volunteers" element={<Volunteers/>}/>
+            <Route path="/admin/money" element ={<Money/>}></Route>
           </Route> 
         </Routes>
       </Router>

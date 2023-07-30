@@ -58,6 +58,7 @@ const InfoBox = ()=>{
       count:"", 
       logo:moneySpent, 
       color:"#FB8500",
+      url:"/admin/money"
     },
     {
 
@@ -69,8 +70,8 @@ const InfoBox = ()=>{
     <div className="infoContainer">
     {
       info.map((info,index)=>(
-        <Link to={info.url}>
-        <div className="info" key ={index} style={{backgroundColor:info.color}}>
+        <Link to={info.url} key ={index}>
+        <div className="info"  style={{backgroundColor:info.color}}>
           <div className="top">
           <div className="count">{info.count}</div>
           <div className="infoLogo"><img src={info.logo}/></div>

@@ -1,4 +1,10 @@
 .dashboard h2 {
   color:black; 
-  margin-left:3rem; 
+  margin-left:2rem; 
+}
+.dashboard hr{
+  width:95%; 
+  margin:0 auto; 
+  padding:0; 
+  border:1px solid #000;  
 }

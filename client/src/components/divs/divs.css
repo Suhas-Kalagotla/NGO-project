@@ -36,6 +36,7 @@
   height:15rem; 
   display: block;
   object-fit: contain;
+  padding-top:1rem; 
 }
 
 .links {
@@ -47,6 +48,7 @@
 .links>a {
   color: var(--color-div-text);
   font-size: 1.3rem;
+  padding-bottom:1rem;
 }
 
 .everything a {
