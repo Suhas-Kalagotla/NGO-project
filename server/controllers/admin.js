@@ -25,11 +25,11 @@ export const countUser=async(req,res)=>{
 
 export const getApp = async (req,res)=>{
   try{
-    const allApp = await app.find({}); 
-    res.status(200).json({data:allApp}); 
+    const allApp = await app.find({});  
+    return res.status(200).json({allApp}); 
   }catch(err){
     console.log(err); 
-    res.status(500).json({error:"Couldn't get applications"}); 
+    return res.status(500).json({success:false,message:"Couldn't get applications"}); 
   }
 }
 
@@ -45,5 +45,19 @@ export const appDelete = async(req,res)=>{
   }catch(err){
     console.log(err); 
     res.status(500).json({error:"internal server error"}); 
+  }
+}
+
+export const getDetails= async(req,res) =>{
+  const {id} = req.body; 
+  try{
+    const application = await app.findById({_id:id}); 
+    if(!application){
+      return res.status(404).json({success:false,message:"Details Not found"});
+    }
+    return res.status(200).json({application}); 
+  }catch(error){
+    console.log("Error fetching Application details", error); 
+    return res.status(500).json({success:false,message:"Error fetching Application details"}); 
   }
 }

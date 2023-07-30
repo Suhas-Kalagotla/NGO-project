@@ -13,3 +13,4 @@ export {default as Volunteers} from "./volunteers/Volunteers";
 export {default as PageNotFound} from "./pageNotFound/PageNotFound"; 
 export {default as Footer} from "./footer/Footer"; 
 export {default as Money } from "./money/Money";
+export {default as AppId} from "./appId/AppId"; 

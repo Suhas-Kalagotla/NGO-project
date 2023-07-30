@@ -1,0 +1,7 @@
+.reportContainer{
+  width:100%; 
+  height:100vh ; 
+  overflow:hidden; 
+  contain:content; 
+  background-color:#fff; 
+}

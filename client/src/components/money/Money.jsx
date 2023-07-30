@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 import { url } from '../../utils/url';
 import PlusSolid from "../../images/plusSolid.svg" ; 
-
+import Loading from "../loading/Loading"; 
 import "./money.css"; 
 const Money = () =>{
   const user = JSON.parse(localStorage.getItem("user")); 
@@ -96,7 +96,7 @@ const Money = () =>{
             </div>
           </div>
           ):(
-            <p>Loading...</p>
+            <Loading/>
           )
         }
         {
