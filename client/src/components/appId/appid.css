@@ -1,4 +1,4 @@
-.reportContainer{
+.appIdContainer{
   width:100%; 
   height:100vh ; 
   overflow:hidden; 
@@ -18,7 +18,7 @@
   width:25px; 
   padding:0.5rem; 
 }
-.reportContainer hr{
+.appIdContainer hr{
   width:97%; 
   margin:0 auto ; 
 }
@@ -26,6 +26,8 @@
   display:flex; 
   align-items:center; 
   gap:2rem ;
+  font-size:1.1rem; 
+  background-color:#efeded; 
 }
 .statusContainer , .volunteerContainer{
   display:flex; 
@@ -33,8 +35,41 @@
   align-items:center; 
 }
 
-.status {
+.status, .volunteerNotAssigned , .reportNan {
   padding:0.25rem 0.5rem;
   border-radius:25px; 
   color:white;  
+}
+.volunteerNotAssigned{
+  background-color:red; 
+}
+.appBody{
+  display:flex; 
+  flex-direction:row ; 
+  padding:1rem; 
+  padding-top:0rem; 
+}
+.applicationDetails,.applicationDescription{
+  width:45%; 
+  display:flex; 
+  flex-direction:column;  
+  justify-content:flex-start; 
+}
+.applicationDetails p{
+  margin:1rem; 
+}
+.reportContainer{
+  background-color:#efeded; 
+  padding:0.5rem; 
+  font-size:1.1rem; 
+  display:flex; 
+  gap:1rem; 
+  text-align:center; 
+  align-items:center; 
+} 
+.reportContainer p{
+  margin:0; 
+}
+.reportNan{
+  background-color:red; 
 }

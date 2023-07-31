@@ -49,7 +49,13 @@ const ApplicationSchema = new mongoose.Schema(
   schoolLocation:{
     type:String,
     required:false,
-  }
+  },
+  volunter:{
+    type:String,
+  },
+  reportId:{
+    type:String,
+  },
   },{timestamps:true} 
 ) ;
 

@@ -9,16 +9,16 @@ import Left from "../../images/left.svg";
 const AppId = () =>{
   const {id} = useParams(); 
   const [application,setApplication] = useState(null); 
-  const [color, setColor] = useState({statusColor:"",volunteerColor:""}) ; 
+  const [color, setColor] = useState("") ; 
   const user = JSON.parse(localStorage.getItem("user")); 
   const findColor = () =>{
     const status = application?.status; 
     if(status === "Pending"){
-      setColor({...color,statusColor:"Red"}); 
+      setColor("Red"); 
     }else if(status ==="Validated"){
-      setColor({...color,statusColor:"orange"}); 
+      setColor("orange"); 
     }else if(status ==="Approved"){
-      setColor({...color,statusColor:"green"}); 
+      setColor("green"); 
     }
 
   }
@@ -49,7 +49,7 @@ const AppId = () =>{
     navigate(-1); 
   }
   return(
-  <div className="reportContainer">
+  <div className="appIdContainer">
   {
     application ? (
     <>
@@ -59,15 +59,46 @@ const AppId = () =>{
       <p>Applied On : {application.createdAt.slice(0,10)}</p>
       <div className="statusContainer">
         <p>Status :</p>
-        <p className="status" style={{backgroundColor:color.statusColor}}>{application.status}</p>
+        <p className="status" style={{backgroundColor:color}}>{application.status}</p>
       </div>
       <div className="volunteerContainer">
         <p>Volunteer :</p>
-        <p className="volunteer">Not Assigned</p>
+        <p className="volunteerNotAssigned">Not Assigned</p>
       </div>
     </div>
       <hr></hr>
-    <div className ="appBody"></div>
+    <div className ="appBody">
+      <div className="applicationDetails">
+        <p>UserName : {application.name}</p>
+        <p>Gender : {application.gender}</p>
+        <p>Contact Number : {application.number}</p>
+        <p>Address : {application.address}</p>
+        {
+          application.type === "Scholarship" && 
+          <>
+          <p>Qualification : {application.qualification}</p>
+          <p>Previous Qualification : {application.prevQualification}</p>
+          </>
+        }
+        {
+          application.type=== "Infrastructure" && 
+          <>
+          <p>School Name : {application.schoolName}</p>
+          <p>School location : {application.schoolLocation}</p>
+          </>
+        }
+      </div>
+      <div className="applicationDescription">
+        <p>Description :</p>
+        <p>{application.description}</p>
+      </div>
+    </div>
+    <div className="reportContainer">
+    
+      <p>Report status : </p> 
+      <p className="reportNan"> Not Available</p>
+    
+    </div>
     </>
   ):
   (
@@ -79,3 +110,4 @@ const AppId = () =>{
 }
 
 export default AppId; 
+
