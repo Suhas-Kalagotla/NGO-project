@@ -1,5 +1,5 @@
 import axios from 'axios';
-import react ,{useEffect,useState} from 'react'; 
+import react ,{Children, useEffect,useState} from 'react'; 
 import {url} from "../../utils/url"; 
 import {Link} from 'react-router-dom'; 
 import apply from "../../images/apply.svg"; 
@@ -10,6 +10,7 @@ import "./infobox.css";
 const InfoBox = ()=>{
   const [countApplications,setCount] = useState(""); 
   const [countVolunteers, setVolunteers] = useState(""); 
+  const[isHovered,setIsHovered] = useState(null); 
   const [countMoney,setMoneySpent] = useState(""); 
   const user = JSON.parse(localStorage.getItem("user")); 
   const fetchCount =async()=>{
@@ -39,24 +40,34 @@ const InfoBox = ()=>{
     fetchUserCount(); 
   },[]);
 
+  const handleMouseEnter =(index)=>{
+    setIsHovered(index); 
+  }
+  const handleMouseLeave = ()=>{
+    setIsHovered(null); 
+  }
+
   const info = [
     {
       name: "Applications", 
       count:countApplications,
       logo:apply, 
       url:"/admin/applications",
+      hoverColor:"#87CEEB",
     },
     {
       name:"Volunteers",
       count :countVolunteers,
       logo : volunteer, 
       url:"/admin/volunteers", 
+      hoverColor:"#FFBE44",
     },
     {
       name:"Money Spent", 
       count:"", 
       logo:moneySpent, 
-      url:"/admin/money"
+      url:"/admin/money",
+      hoverColor:"#000",
     },
     {
 
@@ -65,11 +76,15 @@ const InfoBox = ()=>{
 
   return(
     <>
-    <div className="infoContainer">
+    <div className="infoContainer" onMouseLeave={handleMouseLeave}>
     {
       info.map((info,index)=>(
         <Link to={info.url} key ={index}>
-        <div className="info"  style={{backgroundColor:info.color}}>
+        
+        <div className="info"
+        style={{backgroundColor:isHovered === index ? info.hoverColor : ''}}
+        onMouseEnter = {()=>handleMouseEnter(index)}
+        >
           <div className="top">
           <div className="count">{info.count}</div>
           <div className="infoLogo"><img src={info.logo}/></div>

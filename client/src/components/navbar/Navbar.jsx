@@ -20,6 +20,10 @@ function NavComp({setToken}) {
       </Link>{/*image tag */}
       <ul className="nav__links">
         <li><Link to="/">Home</Link></li>
+        {
+          user?.role==="volunteer" &&
+          <li><Link to ="/volunteer/report">Report</Link></li>
+        }
         <li><Link to ="/application">Application</Link> </li>
         <li><Link to ="#">About</Link> </li>
       </ul>

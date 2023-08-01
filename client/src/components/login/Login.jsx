@@ -31,10 +31,10 @@ const Login =({onFormSwitch,setToken}) =>{
         const msg = "Server Error"; 
         setErrors(msg); 
       }
-      else if(user.role==="user"){
-        navigate("/");
-      }else if(user.role==="admin"){
+      else if(user.role==="admin"){
         navigate("/admin/dashboard"); 
+      }else{
+        navigate("/"); 
       }
     }catch(err){
       const msg = err.response.data.msg;

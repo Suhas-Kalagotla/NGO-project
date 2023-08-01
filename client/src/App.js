@@ -2,7 +2,7 @@ import './App.css';
 import {
   Navbar , Login ,Register,Applications,Form,Home,
   PrivateRoute,Dashboard,AdminApplications,
-  Volunteers,Sidebar,PageNotFound,Money,AppId
+  Volunteers,Sidebar,PageNotFound,Money,AppId,Report
 } from "./components";
 import React,{useState}from 'react'; 
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
@@ -28,6 +28,9 @@ function App(){
           <Route path="/application" element={<PrivateRoute/>}>
             <Route path="/application" element={<Applications/>}/>
             <Route path="/application/form" element ={<Form/>}/>
+          </Route>
+          <Route path="/volunteer" element={<PrivateRoute userRole="volunteer"/>}>
+            <Route path="/volunteer/report" element ={<Report/>}></Route>
           </Route>
           <Route path="/admin" element={<Sidebar setToken={setToken}><PrivateRoute userRole="admin"/></Sidebar>}>
             <Route path="/admin/dashboard" element={<Dashboard/>}/>
