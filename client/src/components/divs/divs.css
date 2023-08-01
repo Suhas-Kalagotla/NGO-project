@@ -3,23 +3,22 @@
   justify-content:space-around; 
   overflow: hidden;
   flex-wrap: wrap;
-  width: 90%;
-  margin: 1rem auto;
+  margin: 0rem auto;
   padding:2rem; 
-  color: #f1f1f1;
-  background: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
+  background-color:rgb(111, 210, 234);
   color: var(--color-div-text);
 }
 
+.skewed-left{
+  background-color:#fff ;  
+}
 .text {
   width:60%;
+  color:#fff; 
   display:flex; 
   flex-direction:column; 
   justify-content:space-around; 
 }
-
 .text h1 {
   margin: 0;
   padding: 0;
@@ -46,13 +45,13 @@
 }
 
 .links>a {
-  color: var(--color-div-text);
+  color: white;
   font-size: 1.3rem;
   padding-bottom:1rem;
 }
 
 .everything a {
-  color: #000;
+  color:#fff;
   text-decoration: none;
 }
 
@@ -66,6 +65,7 @@
 }
 
 .apply_btn {
+  color:#fff; 
   font-size: 1.3rem;
   cursor: pointer;
   padding: .3em 1em;
@@ -99,4 +99,10 @@
 .apply_btn:active {
   box-shadow: 0 0 9e9q inset #0009;
   background-color: var(--c);
+}
+
+.skewed-left a,
+.skewed-left .text,
+.skewed-left button {
+  color:black; 
 }

@@ -43,21 +43,18 @@ const InfoBox = ()=>{
       name: "Applications", 
       count:countApplications,
       logo:apply, 
-      color:"#8ECAe6",
       url:"/admin/applications",
     },
     {
       name:"Volunteers",
       count :countVolunteers,
       logo : volunteer, 
-      color:"#ffb703",
       url:"/admin/volunteers", 
     },
     {
       name:"Money Spent", 
       count:"", 
       logo:moneySpent, 
-      color:"#FB8500",
       url:"/admin/money"
     },
     {

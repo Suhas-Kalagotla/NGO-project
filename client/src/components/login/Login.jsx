@@ -27,7 +27,11 @@ const Login =({onFormSwitch,setToken}) =>{
       localStorage.setItem("user",JSON.stringify(response.data.user));
       const user = JSON.parse(localStorage.getItem("user")); 
       setToken(response.data.token); 
-      if(user.role==="user"){
+      if(response.status===500){
+        const msg = "Server Error"; 
+        setErrors(msg); 
+      }
+      else if(user.role==="user"){
         navigate("/");
       }else if(user.role==="admin"){
         navigate("/admin/dashboard"); 

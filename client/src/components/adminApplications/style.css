@@ -17,7 +17,7 @@
 
 .applicationTable thead tr{
   width:100%; 
-  background-color:#38d4b5; 
+  background-color:lightskyblue; 
   color:#fff; 
   font-weight:bold; 
 }
@@ -38,7 +38,7 @@
 }
 
 .applicationTable tbody tr:last-of-type{
-  border-bottom:2px solid #38d4b5;
+  border-bottom:2px solid lightskyblue;
 }
 
 .applicationTable tbody tr:hover{

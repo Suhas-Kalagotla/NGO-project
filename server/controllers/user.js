@@ -8,6 +8,6 @@ export const counter = async(req,res) =>{
     res.status(200).json({count}); 
   }catch(err){
     console.log(err); 
-    res.status(500).json({error : "Internal server error"}); 
+    res.status(500).json({message: "Error while fetching count"}); 
   }
 }

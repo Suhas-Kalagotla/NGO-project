@@ -8,7 +8,6 @@ import "./form.css"
 
 const user = JSON.parse(localStorage.getItem("user"));
 const userEmail=user?.email;
-
 const initialValues={
   email:userEmail,
   name:"",
@@ -24,6 +23,8 @@ const initialValues={
   schoolLocation:"",
   infraModification:"",
   programmLocation:"",
+  volunter:"",
+  reportId:"",
 }
 
 export const validation = Yup.object({
@@ -64,14 +65,22 @@ export const validation = Yup.object({
 const Form =()=>{
   const navigate = useNavigate(); 
   return(
-     
+
     <div>
       <Formik
       initialValues={initialValues}
       validationSchema={validation}
       onSubmit ={async(values)=>{
-        const response = await axios.post(`${url}/application/form`,values);
-        navigate("/application");
+        try{
+          const response = await axios.post(`${url}/application/form`,values);
+          if(response.status===201){
+            navigate("/application");
+          }
+        }
+        catch(err) {
+          alert("Error while submiting the form"); 
+          console.log(err); 
+        }
       }}
       >
         {({handleSubmit, errors,setFieldValue,values})=>{

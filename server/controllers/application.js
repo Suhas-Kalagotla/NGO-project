@@ -2,7 +2,7 @@ import Application from '../model/Application.js';
 
 export const CreateApplication = async(req,res)=>{
   try{
-    const data = req.body;
+    const data = req.body;  
     const newApplication = new Application({
       ...data
     });

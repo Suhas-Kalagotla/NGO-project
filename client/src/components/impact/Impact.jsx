@@ -14,7 +14,6 @@ const Impact = () =>{
         status:"Pending",
       })
       if(response.status === 200){
-        console.log(response); 
         setFetched(true); 
         setScholarshipCount(response.data.count); 
       }
@@ -24,7 +23,7 @@ const Impact = () =>{
   }
   useEffect(()=>{
     if(!isFetched){
-      fetchCounter();
+      fetchCounter(); 
     }
   },[isFetched]);
   const data = [
@@ -40,7 +39,7 @@ const Impact = () =>{
     },
     {
       name:"Schools", 
-      count:400, 
+      count:97, 
       description:"Are funded to develop the infrastructure and facilities", 
     }
   ]

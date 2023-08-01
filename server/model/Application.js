@@ -50,6 +50,12 @@ const ApplicationSchema = new mongoose.Schema(
     type:String,
     required:false,
   },
+  infraModification:{
+    type:String,
+  },
+  programmLocation:{
+    type:String,
+  },
   volunter:{
     type:String,
   },
