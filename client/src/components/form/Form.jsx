@@ -96,14 +96,17 @@ const Form =()=>{
                   <label>
                   <input 
                   defaultChecked = {initialValues.gender==="male"}
+                  checked={values.gender==="male"}
                   type="radio"
                   name="gender"
                   className="gender"
+                  onChange={()=>setFieldValue("gender","male")}
                   value="male"/>Male
                   </label>
                   <label>
                   <input 
-                  onChange={()=>{initialValues.gender="female"}}
+                  checked={values.gender==="female"}
+                  onChange={()=>setFieldValue("gender","female")}
                   type="radio"
                   name="gender"
                   className="gender"
@@ -111,7 +114,8 @@ const Form =()=>{
                   </label>
                   <label>
                   <input 
-                  onChange={()=>{initialValues.gender="others"}}
+                  checked={values.gender==="others"}
+                  onChange={()=>setFieldValue("gender","others")}
                   type="radio"
                   name="gender"
                   className="gender"
