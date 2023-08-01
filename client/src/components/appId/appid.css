@@ -28,6 +28,11 @@
   gap:2rem ;
   font-size:1.1rem; 
   background-color:#87CEED; 
+  flex-wrap:wrap; 
+}
+.appHeading p{
+  margin:0; 
+  padding:0; 
 }
 .statusContainer , .volunteerContainer{
   display:flex; 
@@ -36,11 +41,11 @@
 }
 
 .status, .volunteerNotAssigned , .reportNan {
-  padding:0.25rem 0.5rem;
+  padding:0.25rem 0.5rem !important;
   border-radius:25px; 
   color:white;  
 }
-.volunteerNotAssigned{
+.volunteerNotAssigned {
   background-color:red; 
 }
 .appBody{

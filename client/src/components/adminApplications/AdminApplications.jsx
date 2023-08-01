@@ -4,6 +4,7 @@ import { url } from '../../utils/url';
 import './style.css'; 
 import {useNavigate} from 'react-router-dom'; 
 import AppDelete from '../appDelete/AppDelete';
+import Loading from '../loading/Loading';
 
 const AdminApplications = () =>{
   const navigate = useNavigate(); 
@@ -42,6 +43,11 @@ const AdminApplications = () =>{
       </thead>
       <tbody>
       {
+        app.length === 0 ? (
+          <tr>
+            <td colSpan={8} >Loading...</td>
+          </tr>
+        ):(
         app.map((item,index)=>(
           <tr key={index} className="adminBodyRow" >
             <td>{index+1}</td>
@@ -54,6 +60,7 @@ const AdminApplications = () =>{
             <td><AppDelete user={user} id={item._id} fetch={getApplications}/></td>
           </tr>
         ))
+        )
       }
       </tbody>
     </table>

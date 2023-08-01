@@ -38,6 +38,12 @@ const UserSchema = new mongoose.Schema(
       type:String,
       default:"user",
     },
+    applicationsAssigned:[
+      {
+      type:String,
+      value:Number, 
+      },
+    ],
     number:{
       type:String,
       required:false,

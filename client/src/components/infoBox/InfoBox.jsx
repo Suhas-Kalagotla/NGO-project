@@ -31,6 +31,7 @@ const InfoBox = ()=>{
       setVolunteers(response.data.countUser); 
     }catch(err){
       console.log(err); 
+      alert("Error while fetching data"); 
     }
   }
   useEffect(()=>{
