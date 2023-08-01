@@ -1,4 +1,4 @@
-import Money from "../model/Money.js"; 
+import Money from "../../model/Money.js"; 
 
 export const moneyFetch=async (req,res)=>{
   try{

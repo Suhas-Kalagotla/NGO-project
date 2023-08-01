@@ -1,0 +1,23 @@
+.centered-row{
+  text-align:center; 
+}
+
+.volunteerTable tbody tr:nth-of-type(even){
+  background-color:#f3f3f3; 
+}
+
+.volunteerTable tbody tr:last-of-type{
+  border-bottom:2px solid var(--color-admin-volunteerTable);
+}
+
+.volunteerTableBodyRow button{
+  cursor:pointer; 
+}
+
+.volunteerTable tbody tr:hover{
+  color:rgb(7,128,183); 
+  cursor:default; 
+}
+.volunteerTable thead tr{
+  background-color:var(--color-admin-volunteerTable) !important; 
+}

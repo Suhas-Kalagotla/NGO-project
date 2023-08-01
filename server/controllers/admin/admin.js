@@ -1,5 +1,5 @@
-import Application from "../model/Application.js";
-import User from "../model/User.js"; 
+import Application from "../../model/Application.js";
+import User from "../../model/User.js"; 
 const app = Application; 
 
 export const getCount=async(req,res)=>{

@@ -35,7 +35,8 @@ body{
   --color-div-text: #000; 
   --color-formDivs:#fffde7d3; 
   --color-row-table : #00767a;
-  --color-row-color:#ffffff; 
+  --color-row-color:#ffffff;
+  --color-admin-volunteerTable:rgb(255,190,68) ; 
   /*Apply button variables*/
   --c : #229091; 
   --_g : linear-gradient(var(--c) 0 0 ) no-repeat; 
