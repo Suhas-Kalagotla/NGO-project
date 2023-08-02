@@ -51,7 +51,8 @@ const Sidebar = ({ children, setToken }) => {
           </div>
           {
             menuItem.map((item, index) => (
-              <NavLink to={item.path} key={index} className={`link ${location.pathname === item.path && "something"} `} >
+              <NavLink to={item.path} key={index} 
+              className={`link ${location.pathname.startsWith(item.path) && "something"} `} >
                 <div className="icon"><img src={item.icon} /></div>
                 <div style={{ display: isOpen ? "block" : "none" }} className="linkText"><p>{item.name}</p></div>
               </NavLink>

@@ -56,7 +56,7 @@ const ApplicationSchema = new mongoose.Schema(
   programmLocation:{
     type:String,
   },
-  volunter:{
+  volunteer:{
     type:String,
   },
   reportId:{

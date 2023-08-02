@@ -21,3 +21,36 @@
 .volunteerTable thead tr{
   background-color:var(--color-admin-volunteerTable) !important; 
 }
+
+.volunteerSelect{
+  transform:scale(1.5); 
+  margin-left:1rem; 
+}
+
+.volunteerHeading{
+  display:flex; 
+  width:100%; 
+  justify-content:flex-end; 
+  align-items:center; 
+  text-align:center; 
+}
+
+.volunteerHeading button{
+  margin:1rem; 
+  margin-bottom:0rem; 
+  font-size:1rem;
+  background:white; 
+  color:black; 
+  border:1px solid #000 ;
+  border-radius:25px; 
+  padding:0.25rem 0.5rem; 
+  cursor:pointer; 
+  transition:transform ease 0.2s ; 
+}
+
+.volunteerHeading button:hover{
+  background-color:var(--color-admin-volunteerTable); 
+  color:#fff; 
+  transform:scale(1.2); 
+}
+

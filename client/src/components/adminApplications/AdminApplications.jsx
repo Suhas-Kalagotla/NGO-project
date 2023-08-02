@@ -8,16 +8,19 @@ import Loading from '../loading/Loading';
 
 const AdminApplications = () =>{
   const navigate = useNavigate(); 
-  const [app,setApp] = useState([])
+  const [app,setApp] = useState([]); 
+  const [loading,setLoading] = useState(true); 
   const user=JSON.parse(localStorage.getItem("user"));
   const getApplications = async ()=>{
       try{
         const response = await axios.post(`${url}/admin/application/getApp `,
         {role:user.role})
-        setApp(response.data.allApp); 
+        if(response.status===200){
+          setApp(response.data.allApp); 
+          setLoading(false); 
+        }
       }catch(err){
         alert("Error while fetching applications"); 
-
       }
   }
   useEffect(()=>{
@@ -43,9 +46,15 @@ const AdminApplications = () =>{
       </thead>
       <tbody>
       {
+        loading ? (
+          <tr>
+            <td colSpan ={8} className="centerRow">Loading...</td>
+          </tr>
+        ) 
+        : (
         app.length === 0 ? (
           <tr>
-            <td colSpan={8} >Loading...</td>
+            <td colSpan={8} className="centerRow" >No application found</td>
           </tr>
         ):(
         app.map((item,index)=>(
@@ -61,6 +70,7 @@ const AdminApplications = () =>{
           </tr>
         ))
         )
+      )
       }
       </tbody>
     </table>

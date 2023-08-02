@@ -5,7 +5,7 @@ import {
   Volunteers,Sidebar,PageNotFound,Money,AppId,Report
 } from "./components";
 import React,{useState}from 'react'; 
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route,Switch} from "react-router-dom";
 
 function App(){
   const toggleForm =(formName)=>{
@@ -34,8 +34,9 @@ function App(){
           </Route>
           <Route path="/admin" element={<Sidebar setToken={setToken}><PrivateRoute userRole="admin"/></Sidebar>}>
             <Route path="/admin/dashboard" element={<Dashboard/>}/>
-            <Route path="/admin/applications" element={<AdminApplications/>}/>
+            <Route path="/admin/applications" element={<AdminApplications/>}/>  
             <Route path="/admin/volunteers" element={<Volunteers/>}/>
+            <Route path="/admin/volunteers/:id" element={<Volunteers/>}/>
             <Route path="/admin/money" element ={<Money/>}></Route>
             <Route path="/admin/applications/:id" element={<AppId/>}></Route>
           </Route> 

@@ -96,7 +96,6 @@ const Form =()=>{
                   <label>
                   <input 
                   defaultChecked = {initialValues.gender==="male"}
-                  checked={values.gender==="male"}
                   type="radio"
                   name="gender"
                   className="gender"

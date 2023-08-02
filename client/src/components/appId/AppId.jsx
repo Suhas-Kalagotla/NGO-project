@@ -20,7 +20,9 @@ const AppId = () =>{
     }else if(status ==="Approved"){
       setColor("green"); 
     }
-
+  }
+  const navigateToVolunteer= () =>{
+    navigate(`/admin/volunteers/${id}`); 
   }
   const fetchApplication = async () =>{
     try{
@@ -63,7 +65,13 @@ const AppId = () =>{
       </div>
       <div className="volunteerContainer">
         <p>Volunteer :</p>
-        <p className="volunteerNotAssigned">Not Assigned</p>
+        { 
+          application.volunteer ? (
+            <p>{application.volunteer}</p>
+          ) : (
+            <p className="volunteerNotAssigned">Not Assigned</p>
+          )
+        }
       </div>
     </div>
       <hr></hr>
@@ -87,12 +95,21 @@ const AppId = () =>{
           <p>School location : {application.schoolLocation}</p>
           </>
         }
+        {
+          application.type==="Programm" &&
+          <>
+          <p>Programm Location : {application.programmLocation}</p>
+          </>
+        }
       </div>
       <div className="applicationDescription">
         <p>Description :</p>
         <p>{application.description}</p>
       </div>
     </div>
+    { !application.volunteer && 
+    <button className="assignBtn" onClick={()=>{navigateToVolunteer()}}>Assign Volunteer</button>
+    }
     <div className="reportContainer">
     
       <p>Report status : </p> 

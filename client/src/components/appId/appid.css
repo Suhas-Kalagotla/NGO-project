@@ -10,6 +10,7 @@
   border:none; 
   background-color:inherit; 
   padding:1rem 0rem  1rem 1rem; 
+  cursor:pointer; 
 }
 .back img{
   background-color:#f3f3f3; 
@@ -77,4 +78,21 @@
 }
 .reportNan{
   background-color:red; 
+}
+
+.assignBtn{
+  margin-left:40px; 
+  margin-bottom:1rem; 
+  background-color:#87CEED; 
+  border:1px solid #000; 
+  font-size:1rem; 
+  padding:0.25rem 0.5rem; 
+  border-radius:25px; 
+  cursor:pointer; 
+  transition:transform ease-in 0.2s ; 
+  color:#fff; 
+  font-weight:bolder; 
+}
+.assignBtn:hover {
+  transform:scale(1.1); 
 }
