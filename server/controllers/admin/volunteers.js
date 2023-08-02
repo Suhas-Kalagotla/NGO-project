@@ -30,7 +30,7 @@ export const assignVolunteer = async(req,res)=>{
       .json({success:false,message:"Couldn't find the application"})
     }
     user.applicationsAssigned.push(appId); 
-    app.volunteer = user.name ; 
+    app.volunteer = user.email ; 
     await user.save(); 
     await app.save(); 
 

@@ -27,3 +27,12 @@ export const checkAdmin = async(req,res,next)=>{
     res.status(403).json({ error: 'Access denied. Admin access required.' });
   }
 }
+
+export const checkVolunteer = async(req,res,next)=>{
+  const {role} = req.body; 
+  if(role === "volunteer"){
+    next();
+  }else {
+    res.status(403).json({error:"Access denied. Volunteer access required"}); 
+  }
+}

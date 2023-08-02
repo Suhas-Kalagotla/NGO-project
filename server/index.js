@@ -7,7 +7,8 @@ import authRoutes from "./routes/auth.js";
 import applicationRoutes from "./routes/application.js";
 import adminRoutes from "./routes/admin.js"; 
 import userRoutes from "./routes/user.js"; 
-import {checkAdmin}  from './middleware/auth.js';
+import volunteerRoutes from "./routes/volunteer.js"; 
+import {checkAdmin, checkVolunteer}  from './middleware/auth.js';
 
 const app = express(); 
 
@@ -20,6 +21,7 @@ app.use("/auth",authRoutes);
 app.use("/user",userRoutes); 
 app.use("/application",applicationRoutes);
 app.use("/admin",checkAdmin ,adminRoutes);  
+app.use("/volunteer",checkVolunteer,volunteerRoutes); 
 const MONGO_URL ="mongodb+srv://ngo123suhas:ngo123suhas@cluster0.2u3tks7.mongodb.net/?retryWrites=true&w=majority"
 const PORT = 5000;
 
