@@ -2,10 +2,10 @@ import './App.css';
 import {
   Navbar , Login ,Register,Applications,Form,Home,
   PrivateRoute,Dashboard,AdminApplications,
-  Volunteers,Sidebar,PageNotFound,Money,AppId,Report
+  Volunteers,Sidebar,PageNotFound,Money,AppId,AssignedApplications
 } from "./components";
 import React,{useState}from 'react'; 
-import {BrowserRouter as Router,Routes,Route,Switch} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 
 function App(){
   const toggleForm =(formName)=>{
@@ -30,7 +30,7 @@ function App(){
             <Route path="/application/form" element ={<Form/>}/>
           </Route>
           <Route path="/volunteer" element={<PrivateRoute userRole="volunteer"/>}>
-            <Route path="/volunteer/report" element ={<Report/>}></Route>
+            <Route path="/volunteer/report" element ={<AssignedApplications/>}></Route>
           </Route>
           <Route path="/admin" element={<Sidebar setToken={setToken}><PrivateRoute userRole="admin"/></Sidebar>}>
             <Route path="/admin/dashboard" element={<Dashboard/>}/>
