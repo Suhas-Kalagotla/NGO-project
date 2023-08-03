@@ -106,3 +106,12 @@
   display:block ; 
   pointer-events:auto; 
 }
+
+.selectedOption{
+  background-color:#87ceed; 
+}
+
+.alignCenter{
+  margin:0 auto; 
+  padding:1rem 0 ; 
+}

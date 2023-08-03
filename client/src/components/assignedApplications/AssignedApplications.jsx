@@ -8,6 +8,7 @@ const AssignedApplications = () =>{
   const user = JSON.parse(localStorage.getItem("user"));  
   const [applications,setApplications] = useState([]); 
   const [count,setCount] = useState();
+  const [filter,setFilter] = useState("All"); 
   const [loading,setLoading] = useState(true); 
 
   const fetchApplications = async () =>{
@@ -15,9 +16,10 @@ const AssignedApplications = () =>{
       const response = await axios.post(`${url}/volunteer/fetchAssignedApp`,{
         role:user.role,
         id:user._id,
+        filter:filter,
       })
       if(response.status === 200){
-        setApplications(response.data.app); 
+        setApplications(response.data.filterApp); 
         setCount(response.data.allCount); 
         setLoading(false); 
       }
@@ -26,17 +28,19 @@ const AssignedApplications = () =>{
       alert("Error while getting applications data"); 
     }
   }
-
+  const toggleFilter = (optionValue) =>{
+    setFilter(optionValue); 
+  }
   useEffect(()=>{
     fetchApplications();
-  },[])
+  },[filter])
 
   return(
   <div className="assignedApp">
     <div className="data">
       {
         !count ? (
-          <p className="centerRow">Loading...</p>
+          <p className="alignCenter">Loading...</p>
         ):(
           <>
           <p>Applications Pending : {count.pendingCount}</p>
@@ -45,9 +49,19 @@ const AssignedApplications = () =>{
           <div className="filter">
             <div className="filterIcon"> <img src={Filter}/></div>
             <div className="filterDropdown">
-              <div className="option" data-value="All">All</div>
-              <div className="option" data-value="Reported">Reported</div>
-              <div className="option" data-value="Pending">Pending</div>
+              <div 
+              className={`option ${filter==="All" && "selectedOption"}`} 
+              onClick={()=>toggleFilter("All")}
+              data-value="All">All</div>
+              <div 
+              className={`option ${filter==="Pending" && "selectedOption"}`} 
+              onClick={()=>toggleFilter("Pending")}
+              data-value="Pending">Pending</div>
+              <div 
+              className={`option ${filter==="Reported" && "selectedOption"}`} 
+              onClick={()=>toggleFilter("Reported")}
+              data-value="Reported">Reported</div>
+              
             </div> 
           </div>
           </>
@@ -74,9 +88,9 @@ const AssignedApplications = () =>{
               <th colSpan={6} className ="centerRow">Loading...</th>
             </tr>
           ):(
-            applications.length === 0 ? (
+            applications && applications.length === 0 ? (
               <tr>
-                <th colSpan={6} className="centerRow">No Application is Assigned</th>
+                <th colSpan={6} className="centerRow">Zero Applications</th>
               </tr>
             ):(
             applications.map((app,index)=>(
