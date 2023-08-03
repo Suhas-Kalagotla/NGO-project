@@ -1,7 +1,108 @@
 .assignedApp {
-  width:100%; 
-  background-color:#fff; 
+  width:100%;  
 }
 .assignedApp table{
+  width:98%; 
+  border-collapse:collapse; 
+  margin:25px auto; 
+  font-size:0.9rem; 
+  min-width:400px; 
+  border-radius:15px 15px 0 0 ; 
+  overflow:hidden ;
+  background-color:#fff; 
+  box-shadow:0 0 20px rgba(0,0,0,0.25);
+}
+
+.assignedApp thead tr{
   width:100%; 
+  background-color:var(--color-assignedApplication); 
+  color:#fff; 
+  font-weight:bold ; 
+}
+.assignedApp thead th{
+  font-weight:bold !important; 
+}
+.assignedApp th, 
+.assignedApp td{
+  padding:12px 15px ; 
+}
+
+.assignedApp th{
+  font-weight:normal; 
+}
+
+.assignedApp tbody tr{
+  border-bottom:1px solid #ddd; 
+}
+
+.assignedApp tbody tr:nth-of-type(even){
+  background-color:#f3f3f3; 
+}
+
+.assignedApp tbody tr:last-of-type{
+  border-bottom:2px solid var(--color-assignedApplication); 
+}
+
+.assignedApp tbody tr:hover{
+  color:rgb(7,128,183); 
+  cursor:default; 
+}
+
+.reportBtn {
+  cursor:pointer; 
+}
+
+.data{
+  display:flex; 
+  width:97%; 
+  margin:25px auto; 
+  gap:2rem; 
+  background-color:#fff;
+  padding-left:1rem;  
+  border-radius:25px; 
+  align-items:center; 
+  text-align:center; 
+}
+.filter{
+  margin-left:auto; 
+  margin-right:3%; 
+  position:relative; 
+}
+.filterIcon{
+  width:1.7rem; 
+  height:1.7rem; 
+  cursor:pointer; 
+  display:flex; 
+  justify-content: center;
+  align-items:center; 
+}
+
+.filterDropdown {
+  position: absolute;
+  top: calc(100%) ;
+  right: -0.8rem;
+  background-color:#242526;
+  padding: 8px;
+  border: none;
+  display: none;
+  color:#fff; 
+  border-radius:15px; 
+  z-index:1; 
+}
+
+
+.option{
+  cursor:pointer; 
+  padding:0.25rem 0.5rem; 
+  align-items:left; 
+  z-index:1; 
+  border-radius:15px; 
+}
+.option:hover{
+  background-color:#87ceed; 
+
+}
+.filter:hover .filterDropdown{
+  display:block ; 
+  pointer-events:auto; 
 }

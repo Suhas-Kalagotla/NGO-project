@@ -1,20 +1,24 @@
 import axios from "axios"
 import {url} from "../../utils/url"; 
 import { useState ,useEffect} from "react";
-import "./assignedApplications.css"
+import Filter from "../../images/filter.svg"; 
+import "./assignedApplications.css";
+
 const AssignedApplications = () =>{
   const user = JSON.parse(localStorage.getItem("user"));  
   const [applications,setApplications] = useState([]); 
+  const [count,setCount] = useState();
   const [loading,setLoading] = useState(true); 
+
   const fetchApplications = async () =>{
     try{
       const response = await axios.post(`${url}/volunteer/fetchAssignedApp`,{
-        role:user?.role,
-        id:user?._id,
+        role:user.role,
+        id:user._id,
       })
       if(response.status === 200){
-        console.log(response.data.app); 
         setApplications(response.data.app); 
+        setCount(response.data.allCount); 
         setLoading(false); 
       }
     }catch(err){
@@ -26,11 +30,30 @@ const AssignedApplications = () =>{
   useEffect(()=>{
     fetchApplications();
   },[])
-  useEffect(()=>{
-    console.log(applications); 
-  },[])
+
   return(
   <div className="assignedApp">
+    <div className="data">
+      {
+        !count ? (
+          <p className="centerRow">Loading...</p>
+        ):(
+          <>
+          <p>Applications Pending : {count.pendingCount}</p>
+          <p>Applications Reported : {count.reportedCount}</p>
+          <p>No of Applications : {count.totalCount}</p>
+          <div className="filter">
+            <div className="filterIcon"> <img src={Filter}/></div>
+            <div className="filterDropdown">
+              <div className="option" data-value="All">All</div>
+              <div className="option" data-value="Reported">Reported</div>
+              <div className="option" data-value="Pending">Pending</div>
+            </div> 
+          </div>
+          </>
+         )
+      }
+    </div>
     <table>
       <thead>
         <tr>
@@ -45,7 +68,7 @@ const AssignedApplications = () =>{
       </thead>
       <tbody>
         {
-          loading === true? 
+          loading ? 
           (
             <tr>
               <th colSpan={6} className ="centerRow">Loading...</th>

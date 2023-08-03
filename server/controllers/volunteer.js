@@ -11,11 +11,21 @@ export const fetchAssignedApp = async(req,res)=>{
 
     const appId = volunteer.applicationsAssigned; 
     const app = await Application.find({_id: { $in: appId}}); 
-    console.log(app); 
     if(!app){
       return res.status(404).json({error:"Failed to Fetch Applications"}); 
     }
-    return res.status(200).json({app}); 
+
+    const pendingCount = app.filter((app)=> app.status === "Pending").length; 
+    const reportedCount = app.filter((app)=>app.status === "Reported").length;
+    const totalCount = app.length; 
+    
+    const allCount = {
+      pendingCount , 
+      reportedCount, 
+      totalCount, 
+    }
+
+    return res.status(200).json({app ,allCount}); 
   }catch(err){
     console.log(err); 
     return res.status(500).json({error:"Internal server Error"}); 
