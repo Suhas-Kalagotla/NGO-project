@@ -22,9 +22,11 @@ function NavComp({setToken}) {
         <li><Link to="/">Home</Link></li>
         {
           user?.role==="volunteer" &&
-          <li><Link to ="/volunteer/report">Report</Link></li>
+          <li><Link to ="/volunteer/report/">Report</Link></li>
         }
+        { user?.role==="user" && 
         <li><Link to ="/application">Application</Link> </li>
+        }
         <li><Link to ="#">About</Link> </li>
       </ul>
       <div>

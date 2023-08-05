@@ -3,9 +3,13 @@ import {url} from "../../utils/url";
 import { useState ,useEffect} from "react";
 import Filter from "../../images/filter.svg"; 
 import "./assignedApplications.css";
+import { useParams,useNavigate,} from "react-router-dom";
+import NavigateBack from "../navigateBack/NavigateBack";
 
 const AssignedApplications = () =>{
+  const {id} = useParams(); 
   const user = JSON.parse(localStorage.getItem("user"));  
+  const volunteerId = user.role==="volunteer" ? user._id : id ; 
   const [applications,setApplications] = useState([]); 
   const [count,setCount] = useState();
   const [filter,setFilter] = useState("All"); 
@@ -15,7 +19,7 @@ const AssignedApplications = () =>{
     try{
       const response = await axios.post(`${url}/volunteer/fetchAssignedApp`,{
         role:user.role,
-        id:user._id,
+        id:volunteerId,
         filter:filter,
       })
       if(response.status === 200){
@@ -31,6 +35,7 @@ const AssignedApplications = () =>{
   const toggleFilter = (optionValue) =>{
     setFilter(optionValue); 
   }
+
   useEffect(()=>{
     fetchApplications();
   },[filter])
@@ -43,9 +48,13 @@ const AssignedApplications = () =>{
           <p className="alignCenter">Loading...</p>
         ):(
           <>
+          {
+            user.role==="admin" && 
+            <NavigateBack/>
+          }
           <p>Applications Pending : {count.pendingCount}</p>
           <p>Applications Reported : {count.reportedCount}</p>
-          <p>No of Applications : {count.totalCount}</p>
+          <p>Total Applications : {count.totalCount}</p>
           <div className="filter">
             <div className="filterIcon"> <img src={Filter}/></div>
             <div className="filterDropdown">

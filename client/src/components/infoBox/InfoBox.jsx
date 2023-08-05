@@ -67,10 +67,10 @@ const InfoBox = ()=>{
       count:"", 
       logo:moneySpent, 
       url:"/admin/money",
-      hoverColor:"#000",
+      hoverColor:"#273631",
     },
     {
-
+      hoverColor:"#74E0D5",
     }
   ]
 

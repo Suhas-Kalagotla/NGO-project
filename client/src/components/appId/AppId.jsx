@@ -4,9 +4,9 @@ import axios from "axios";
 import { url } from "../../utils/url";
 import { useEffect,useState } from "react";
 import Loading from "../loading/Loading"; 
-import Left from "../../images/left.svg"; 
-
+import NavigateBack from "../navigateBack/NavigateBack";
 const AppId = () =>{
+  const navigate = useNavigate(); 
   const {id} = useParams(); 
   const [application,setApplication] = useState(null); 
   const [color, setColor] = useState("") ; 
@@ -46,17 +46,14 @@ const AppId = () =>{
     findColor(); 
   },[application]); 
 
-  const navigate = useNavigate(); 
-  const handleGoBack = ()=>{
-    navigate(-1); 
-  }
+
   return(
   <div className="appIdContainer">
   {
     application ? (
     <>
     <div className="appHeading">
-      <button onClick={handleGoBack} className="back"><img src ={Left}/></button>
+      <NavigateBack/>
       <p>Updated At : {application.updatedAt.slice(0,10)}</p>
       <p>Applied On : {application.createdAt.slice(0,10)}</p>
       <div className="statusContainer">

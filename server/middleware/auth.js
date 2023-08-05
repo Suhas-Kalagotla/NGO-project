@@ -30,9 +30,18 @@ export const checkAdmin = async(req,res,next)=>{
 
 export const checkVolunteer = async(req,res,next)=>{
   const {role} = req.body; 
-  if(role === "volunteer"){
+  if(role === "volunteer" || role==="admin"){
     next();
   }else {
     res.status(403).json({error:"Access denied. Volunteer access required"}); 
+  }
+}
+
+export const checkUser = async(req,res,next)=>{
+  const {role} = req.body; 
+  if(role==="user"){
+    next(); 
+  }else{
+    res.status(403).json({error:"Acces denied.User access required"}); 
   }
 }

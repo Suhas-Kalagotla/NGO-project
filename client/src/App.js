@@ -25,7 +25,7 @@ function App(){
           {
           currentForm==="login"?<Login onFormSwitch={toggleForm} setToken={setToken}/>:<Register onFormSwitch={toggleForm}/>
           }/>
-          <Route path="/application" element={<PrivateRoute/>}>
+          <Route path="/application" element={<PrivateRoute userRole="user"/>}>
             <Route path="/application" element={<Applications/>}/>
             <Route path="/application/form" element ={<Form/>}/>
           </Route>
@@ -37,6 +37,7 @@ function App(){
             <Route path="/admin/applications" element={<AdminApplications/>}/>  
             <Route path="/admin/volunteers" element={<Volunteers/>}/>
             <Route path="/admin/volunteers/:id" element={<Volunteers/>}/>
+            <Route path="/admin/volunteers/statistics/:id" element={<AssignedApplications/>}/>
             <Route path="/admin/money" element ={<Money/>}></Route>
             <Route path="/admin/applications/:id" element={<AppId/>}></Route>
           </Route> 
